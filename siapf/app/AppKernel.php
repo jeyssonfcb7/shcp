@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
+           // new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
