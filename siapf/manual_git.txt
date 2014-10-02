@@ -1,0 +1,6 @@
+/********************************************************
+aca esta un manualito del GIT para que despejen sus dudas
+/********************************************************
+
+
+http://git-scm.com/book/es/Empezando
