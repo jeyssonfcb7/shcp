@@ -1,0 +1,81 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboPreproced3
+ *
+ * @ORM\Table(name="shcp_abo_preproced3", indexes={@ORM\Index(name="IDX_C2C609BB70374B77", columns={"id_preproced1"}), @ORM\Index(name="IDX_C2C609BB1E833DEC", columns={"id_cie10"})})
+ * @ORM\Entity
+ */
+class ShcpAboPreproced3
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_preproced3_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep3_condicion_ingr", type="string", nullable=true)
+     */
+    private $prep3CondicionIngr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep3_otro_danio", type="string", length=30, nullable=true)
+     */
+    private $prep3OtroDanio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep3_estado_actual", type="string", nullable=true)
+     */
+    private $prep3EstadoActual;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep3_tipo_aborto", type="string", nullable=true)
+     */
+    private $prep3TipoAborto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep3_respons", type="string", length=100, nullable=true)
+     */
+    private $prep3Respons;
+
+    /**
+     * @var \ShcpAboPreproced1
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboPreproced1")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_preproced1", referencedColumnName="id")
+     * })
+     */
+    private $idPreproced1;
+
+    /**
+     * @var \ShcpAboCtlCie10
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboCtlCie10")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_cie10", referencedColumnName="id")
+     * })
+     */
+    private $idCie10;
+
+
+}

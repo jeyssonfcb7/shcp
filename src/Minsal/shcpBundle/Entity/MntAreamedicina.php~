@@ -1,0 +1,67 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntAreamedicina
+ *
+ * @ORM\Table(name="mnt_areamedicina", indexes={@ORM\Index(name="IDX_FDD2A77C45BCCC8", columns={"idarea"}), @ORM\Index(name="IDX_FDD2A77CF58EA699", columns={"idmedicina"})})
+ * @ORM\Entity
+ */
+class MntAreamedicina
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_areamedicina_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dispensada", type="integer", nullable=true)
+     */
+    private $dispensada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idestablecimiento", type="integer", nullable=false)
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmodalidad", type="integer", nullable=false)
+     */
+    private $idmodalidad;
+
+    /**
+     * @var \MntAreafarmacia
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreafarmacia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idarea", referencedColumnName="id")
+     * })
+     */
+    private $idarea;
+
+    /**
+     * @var \FarmCatalogoproductos
+     *
+     * @ORM\ManyToOne(targetEntity="FarmCatalogoproductos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idmedicina", referencedColumnName="id")
+     * })
+     */
+    private $idmedicina;
+
+
+}

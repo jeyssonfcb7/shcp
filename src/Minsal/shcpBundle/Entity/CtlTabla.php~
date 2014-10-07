@@ -1,0 +1,54 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlTabla
+ *
+ * @ORM\Table(name="ctl_tabla")
+ * @ORM\Entity
+ */
+class CtlTabla
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_tabla_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipo_tabla", type="integer", nullable=false)
+     */
+    private $tipoTabla = '1';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipo_transaccion", type="integer", nullable=false)
+     */
+    private $tipoTransaccion;
+
+
+}

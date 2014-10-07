@@ -1,0 +1,80 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmFormItemPool
+ *
+ * @ORM\Table(name="frm_form_item_pool", uniqueConstraints={@ORM\UniqueConstraint(name="idx_seccion_pool_form_item", columns={"id_seccion_pool", "id_form_item"})}, indexes={@ORM\Index(name="IDX_132426EBB0F9D2E", columns={"id_form_item"}), @ORM\Index(name="IDX_132426EB3DE02BDB", columns={"id_padre"}), @ORM\Index(name="IDX_132426EBC14F1F47", columns={"id_seccion_pool"}), @ORM\Index(name="IDX_132426EBFE04F569", columns={"validacion_padre"})})
+ * @ORM\Entity
+ */
+class FrmFormItemPool
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_form_item_pool_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="valor_padre", type="text", nullable=true)
+     */
+    private $valorPadre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orden", type="integer", nullable=false)
+     */
+    private $orden;
+
+    /**
+     * @var \FrmFormItem
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormItem")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_form_item", referencedColumnName="id")
+     * })
+     */
+    private $idFormItem;
+
+    /**
+     * @var \FrmFormItemPool
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormItemPool")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_padre", referencedColumnName="id")
+     * })
+     */
+    private $idPadre;
+
+    /**
+     * @var \FrmSeccionPool
+     *
+     * @ORM\ManyToOne(targetEntity="FrmSeccionPool")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_seccion_pool", referencedColumnName="id")
+     * })
+     */
+    private $idSeccionPool;
+
+    /**
+     * @var \CtlValidacionCampo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlValidacionCampo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="validacion_padre", referencedColumnName="id")
+     * })
+     */
+    private $validacionPadre;
+
+
+}

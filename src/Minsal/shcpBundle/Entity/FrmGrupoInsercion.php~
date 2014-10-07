@@ -1,0 +1,43 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmGrupoInsercion
+ *
+ * @ORM\Table(name="frm_grupo_insercion", indexes={@ORM\Index(name="IDX_860C173A7C7EF6A", columns={"id_formulario"})})
+ * @ORM\Entity
+ */
+class FrmGrupoInsercion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_grupo_insercion_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tabla_destino", type="string", nullable=false)
+     */
+    private $tablaDestino;
+
+    /**
+     * @var \FrmFormulario
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormulario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_formulario", referencedColumnName="id")
+     * })
+     */
+    private $idFormulario;
+
+
+}

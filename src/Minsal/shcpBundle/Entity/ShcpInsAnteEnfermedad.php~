@@ -1,0 +1,67 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsAnteEnfermedad
+ *
+ * @ORM\Table(name="shcp_ins_ante_enfermedad", indexes={@ORM\Index(name="IDX_38120F1C78323381", columns={"id_enfermedad"}), @ORM\Index(name="IDX_38120F1CED1232DF", columns={"id_antecedent_obste"})})
+ * @ORM\Entity
+ */
+class ShcpInsAnteEnfermedad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_ante_enfermedad_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anenf_familiar", type="string", nullable=true)
+     */
+    private $anenfFamiliar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anenf_personal", type="string", nullable=true)
+     */
+    private $anenfPersonal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anenf_otra", type="string", length=20, nullable=true)
+     */
+    private $anenfOtra;
+
+    /**
+     * @var \ShcpInsCtlEnfermedad
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpInsCtlEnfermedad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_enfermedad", referencedColumnName="id")
+     * })
+     */
+    private $idEnfermedad;
+
+    /**
+     * @var \ShcpInsAntecedentObste
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpInsAntecedentObste")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_antecedent_obste", referencedColumnName="id")
+     * })
+     */
+    private $idAntecedentObste;
+
+
+}

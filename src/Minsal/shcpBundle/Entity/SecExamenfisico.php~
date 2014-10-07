@@ -1,0 +1,85 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecExamenfisico
+ *
+ * @ORM\Table(name="sec_examenfisico", indexes={@ORM\Index(name="IDX_76AF851FA92D004C", columns={"idhistorialclinico"})})
+ * @ORM\Entity
+ */
+class SecExamenfisico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_examenfisico_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pulso", type="string", length=10, nullable=true)
+     */
+    private $pulso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presionarterial", type="string", length=10, nullable=true)
+     */
+    private $presionarterial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="respiracion", type="string", length=6, nullable=true)
+     */
+    private $respiracion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="peso", type="smallint", nullable=true)
+     */
+    private $peso;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="talla", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $talla;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="temperatura", type="smallint", nullable=true)
+     */
+    private $temperatura;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="text", nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idhistorialclinico", referencedColumnName="id")
+     * })
+     */
+    private $idhistorialclinico;
+
+
+}

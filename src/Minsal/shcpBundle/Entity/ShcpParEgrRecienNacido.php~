@@ -1,0 +1,144 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParEgrRecienNacido
+ *
+ * @ORM\Table(name="shcp_par_egr_recien_nacido", indexes={@ORM\Index(name="IDX_9E873A8FD766E548", columns={"id_admision_parto"}), @ORM\Index(name="IDX_9E873A8F7DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class ShcpParEgrRecienNacido
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_egr_recien_nacido_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_orden", type="string", nullable=true)
+     */
+    private $egrnOrden;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_condicion", type="string", nullable=true)
+     */
+    private $egrnCondicion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_fallece_traslado", type="string", nullable=true)
+     */
+    private $egrnFalleceTraslado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egrn_edad", type="integer", nullable=true)
+     */
+    private $egrnEdad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_menor_1dia", type="string", nullable=true)
+     */
+    private $egrnMenor1dia;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egrn_fecha", type="date", nullable=true)
+     */
+    private $egrnFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egrn_hora", type="time", nullable=true)
+     */
+    private $egrnHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_nombre", type="string", length=100, nullable=true)
+     */
+    private $egrnNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_apellido", type="string", length=100, nullable=true)
+     */
+    private $egrnApellido;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egrn_responsa", type="bigint", nullable=true)
+     */
+    private $egrnResponsa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_alimento_alta", type="string", nullable=true)
+     */
+    private $egrnAlimentoAlta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_boca_arriba", type="string", nullable=true)
+     */
+    private $egrnBocaArriba;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egrn_bcg", type="string", nullable=true)
+     */
+    private $egrnBcg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egrn_peso", type="integer", nullable=true)
+     */
+    private $egrnPeso;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

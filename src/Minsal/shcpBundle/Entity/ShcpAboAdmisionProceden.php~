@@ -1,0 +1,161 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboAdmisionProceden
+ *
+ * @ORM\Table(name="shcp_abo_admision_proceden", indexes={@ORM\Index(name="IDX_666AECC193489788", columns={"id_exp_materno"}), @ORM\Index(name="IDX_666AECC1F83B3AB5", columns={"id_hc"}), @ORM\Index(name="IDX_666AECC17DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class ShcpAboAdmisionProceden
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_admision_proceden_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="adpro_fecha_ingreso", type="date", nullable=true)
+     */
+    private $adproFechaIngreso;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="adpro_hora_min", type="time", nullable=true)
+     */
+    private $adproHoraMin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_hosp_emb", type="string", nullable=true)
+     */
+    private $adproHospEmb;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_dias_hosp", type="integer", nullable=true)
+     */
+    private $adproDiasHosp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_edad_gest_sem", type="integer", nullable=true)
+     */
+    private $adproEdadGestSem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_edad_gest_dias", type="integer", nullable=true)
+     */
+    private $adproEdadGestDias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_eg_fum_eco", type="string", nullable=true)
+     */
+    private $adproEgFumEco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_tipo_acomp", type="string", nullable=true)
+     */
+    private $adproTipoAcomp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_traslado", type="string", nullable=true)
+     */
+    private $adproTraslado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_detalle_traslado", type="string", length=100, nullable=true)
+     */
+    private $adproDetalleTraslado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adpro_tipo_transport", type="string", nullable=true)
+     */
+    private $adproTipoTransport;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_tiem_trasl_dia", type="integer", nullable=true)
+     */
+    private $adproTiemTraslDia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_tiem_trasl_hrs", type="integer", nullable=true)
+     */
+    private $adproTiemTraslHrs;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_tiem_trasl_min", type="integer", nullable=true)
+     */
+    private $adproTiemTraslMin;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adpro_digitador_resp", type="bigint", nullable=true)
+     */
+    private $adproDigitadorResp;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_hc", referencedColumnName="id")
+     * })
+     */
+    private $idHc;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

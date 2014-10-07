@@ -1,0 +1,74 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabTipomuestra
+ *
+ * @ORM\Table(name="lab_tipomuestra", indexes={@ORM\Index(name="IDX_967998F06724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_967998F013B895A1", columns={"idusuarioreg"})})
+ * @ORM\Entity
+ */
+class LabTipomuestra
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_tipomuestra_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipomuestra", type="string", length=25, nullable=false)
+     */
+    private $tipomuestra;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="habilitado", type="boolean", nullable=false)
+     */
+    private $habilitado = true;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+
+}

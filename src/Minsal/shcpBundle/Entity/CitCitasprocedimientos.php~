@@ -1,0 +1,161 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CitCitasprocedimientos
+ *
+ * @ORM\Table(name="cit_citasprocedimientos", indexes={@ORM\Index(name="fki_mnt_procedimiento_establecimiento_cit_citasprocedimientos", columns={"id_ciq_establecimiento"}), @ORM\Index(name="fki_fos_user_user_reg_cit_citasprocedimientos", columns={"idusuarioreg"}), @ORM\Index(name="IDX_511136306A540E", columns={"id_estado"}), @ORM\Index(name="IDX_511136307DFA12F6", columns={"id_establecimiento"}), @ORM\Index(name="IDX_51113630D5F9D21F", columns={"id_establecimiento_referencia"}), @ORM\Index(name="IDX_51113630CC2F8715", columns={"id_area_mod_estab"}), @ORM\Index(name="IDX_511136308627A85B", columns={"id_aten_area_mod_estab"}), @ORM\Index(name="IDX_51113630890253C7", columns={"id_empleado"}), @ORM\Index(name="IDX_51113630701624C4", columns={"id_expediente"}), @ORM\Index(name="IDX_51113630EB971272", columns={"id_rangohora"})})
+ * @ORM\Entity
+ */
+class CitCitasprocedimientos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="cit_citasprocedimientos_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipcita", type="string", length=15, nullable=true)
+     */
+    private $ipcita;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipconfirmada", type="string", length=15, nullable=true)
+     */
+    private $ipconfirmada;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero_expediente_referencia", type="string", length=20, nullable=true)
+     */
+    private $numeroExpedienteReferencia;
+
+    /**
+     * @var \CitEstadoCita
+     *
+     * @ORM\ManyToOne(targetEntity="CitEstadoCita")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estado", referencedColumnName="id")
+     * })
+     */
+    private $idEstado;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento_referencia", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimientoReferencia;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \MntAreaModEstab
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreaModEstab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_area_mod_estab", referencedColumnName="id")
+     * })
+     */
+    private $idAreaModEstab;
+
+    /**
+     * @var \MntAtenAreaModEstab
+     *
+     * @ORM\ManyToOne(targetEntity="MntAtenAreaModEstab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_aten_area_mod_estab", referencedColumnName="id")
+     * })
+     */
+    private $idAtenAreaModEstab;
+
+    /**
+     * @var \MntEmpleado
+     *
+     * @ORM\ManyToOne(targetEntity="MntEmpleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_empleado", referencedColumnName="id")
+     * })
+     */
+    private $idEmpleado;
+
+    /**
+     * @var \MntExpediente
+     *
+     * @ORM\ManyToOne(targetEntity="MntExpediente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
+     * })
+     */
+    private $idExpediente;
+
+    /**
+     * @var \MntProcedimientoEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="MntProcedimientoEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ciq_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idCiqEstablecimiento;
+
+    /**
+     * @var \MntRangohora
+     *
+     * @ORM\ManyToOne(targetEntity="MntRangohora")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_rangohora", referencedColumnName="id")
+     * })
+     */
+    private $idRangohora;
+
+
+}

@@ -1,0 +1,92 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParPatologia
+ *
+ * @ORM\Table(name="shcp_par_patologia", indexes={@ORM\Index(name="IDX_A0EA638AD766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParPatologia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_patologia_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_existencia", type="string", nullable=true)
+     */
+    private $patExistencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_enfermedad", type="string", nullable=true)
+     */
+    private $patEnfermedad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_hemorragia_1trim", type="string", nullable=true)
+     */
+    private $patHemorragia1trim;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_hemorragia_2trim", type="string", nullable=true)
+     */
+    private $patHemorragia2trim;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_hemorragia_3trim", type="string", nullable=true)
+     */
+    private $patHemorragia3trim;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_postparto", type="string", nullable=true)
+     */
+    private $patPostparto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_infec_puerperal", type="string", nullable=true)
+     */
+    private $patInfecPuerperal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pat_notas", type="string", length=200, nullable=true)
+     */
+    private $patNotas;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

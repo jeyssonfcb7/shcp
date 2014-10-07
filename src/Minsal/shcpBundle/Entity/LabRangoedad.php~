@@ -1,0 +1,82 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabRangoedad
+ *
+ * @ORM\Table(name="lab_rangoedad")
+ * @ORM\Entity
+ */
+class LabRangoedad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_rangoedad_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edadinicio", type="integer", nullable=false)
+     */
+    private $edadinicio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edadfinal", type="integer", nullable=false)
+     */
+    private $edadfinal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unidadtiempo", type="string", length=1, nullable=true)
+     */
+    private $unidadtiempo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="clasificacion", type="string", length=1, nullable=true)
+     */
+    private $clasificacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuarioreg", type="integer", nullable=true)
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuariomod", type="integer", nullable=true)
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+
+}

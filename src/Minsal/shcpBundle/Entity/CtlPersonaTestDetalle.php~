@@ -1,0 +1,63 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlPersonaTestDetalle
+ *
+ * @ORM\Table(name="ctl_persona_test_detalle", indexes={@ORM\Index(name="IDX_10C2F2A2B0DC2AB1", columns={"id_nacionalidad"}), @ORM\Index(name="IDX_10C2F2A234DD027C", columns={"id_persona_test"}), @ORM\Index(name="IDX_10C2F2A22D9C6F7C", columns={"id_tipo_zona"})})
+ * @ORM\Entity
+ */
+class CtlPersonaTestDetalle
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_persona_test_detalle_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_departamento", type="integer", nullable=true)
+     */
+    private $idDepartamento;
+
+    /**
+     * @var \CtlNacionalidad
+     *
+     * @ORM\ManyToOne(targetEntity="CtlNacionalidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_nacionalidad", referencedColumnName="id")
+     * })
+     */
+    private $idNacionalidad;
+
+    /**
+     * @var \CtlPersonaTest
+     *
+     * @ORM\ManyToOne(targetEntity="CtlPersonaTest")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_persona_test", referencedColumnName="id")
+     * })
+     */
+    private $idPersonaTest;
+
+    /**
+     * @var \CtlAreaGeografica
+     *
+     * @ORM\ManyToOne(targetEntity="CtlAreaGeografica")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_zona", referencedColumnName="id")
+     * })
+     */
+    private $idTipoZona;
+
+
+}

@@ -1,0 +1,104 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlExamenServicioApoyo
+ *
+ * @ORM\Table(name="ctl_examen_servicio_apoyo", indexes={@ORM\Index(name="IDX_2978DB0695EA351", columns={"id_atencion"}), @ORM\Index(name="IDX_2978DB05A0BF7CA", columns={"idgrupo"}), @ORM\Index(name="IDX_2978DB06724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_2978DB013B895A1", columns={"idusuarioreg"}), @ORM\Index(name="IDX_2978DB0FFF6A732", columns={"idsexo"})})
+ * @ORM\Entity
+ */
+class CtlExamenServicioApoyo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_examen_servicio_apoyo_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idestandar", type="string", length=4, nullable=false)
+     */
+    private $idestandar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \CtlAtencion
+     *
+     * @ORM\ManyToOne(targetEntity="CtlAtencion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_atencion", referencedColumnName="id")
+     * })
+     */
+    private $idAtencion;
+
+    /**
+     * @var \CtlExamenServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlExamenServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idgrupo", referencedColumnName="id")
+     * })
+     */
+    private $idgrupo;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \CtlSexo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlSexo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsexo", referencedColumnName="id")
+     * })
+     */
+    private $idsexo;
+
+
+}

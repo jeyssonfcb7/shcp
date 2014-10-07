@@ -1,0 +1,87 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabTipomuestraporexamen
+ *
+ * @ORM\Table(name="lab_tipomuestraporexamen", indexes={@ORM\Index(name="fki_tipomuestra_tipomuestraporexamen", columns={"idtipomuestra"}), @ORM\Index(name="IDX_5C44865935F12240", columns={"idexamen"}), @ORM\Index(name="IDX_5C4486596724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_5C44865913B895A1", columns={"idusuarioreg"})})
+ * @ORM\Entity
+ */
+class LabTipomuestraporexamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_tipomuestraporexamen_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="habilitado", type="boolean", nullable=false)
+     */
+    private $habilitado = true;
+
+    /**
+     * @var \CtlExamenServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlExamenServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idexamen", referencedColumnName="id")
+     * })
+     */
+    private $idexamen;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \LabTipomuestra
+     *
+     * @ORM\ManyToOne(targetEntity="LabTipomuestra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idtipomuestra", referencedColumnName="id")
+     * })
+     */
+    private $idtipomuestra;
+
+
+}

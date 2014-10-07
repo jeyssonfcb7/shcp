@@ -1,0 +1,106 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpDocPlanParto
+ *
+ * @ORM\Table(name="shcp_doc_plan_parto", indexes={@ORM\Index(name="IDX_11175EE893489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpDocPlanParto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_doc_plan_parto_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_lugar_control", type="string", length=125, nullable=true)
+     */
+    private $planLugarControl;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="plan_fecha_inicio", type="date", nullable=true)
+     */
+    private $planFechaInicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_nom_per_inicia", type="string", length=125, nullable=true)
+     */
+    private $planNomPerInicia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_hosp_planea_parto", type="string", length=125, nullable=true)
+     */
+    private $planHospPlaneaParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_acom_parto", type="string", length=100, nullable=true)
+     */
+    private $planAcomParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_salir_ants_fec", type="string", nullable=true)
+     */
+    private $planSalirAntsFec;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_dond_iria", type="string", nullable=true)
+     */
+    private $planDondIria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_direccion", type="string", length=150, nullable=true)
+     */
+    private $planDireccion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_nom_per_transp", type="string", length=100, nullable=true)
+     */
+    private $planNomPerTransp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_tel_per_transp", type="string", nullable=true)
+     */
+    private $planTelPerTransp;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

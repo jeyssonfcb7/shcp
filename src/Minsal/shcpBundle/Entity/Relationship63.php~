@@ -1,0 +1,46 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Relationship63
+ *
+ * @ORM\Table(name="relationship_63", indexes={@ORM\Index(name="IDX_E46D53A4C2CA78C", columns={"id_patologia_paciente"}), @ORM\Index(name="IDX_E46D53A497CEA352", columns={"id_patologia"})})
+ * @ORM\Entity
+ */
+class Relationship63
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="relationship_63_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \ShcpParCtlPatologia
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParCtlPatologia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_patologia_paciente", referencedColumnName="id")
+     * })
+     */
+    private $idPatologiaPaciente;
+
+    /**
+     * @var \ShcpParPatologia
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParPatologia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_patologia", referencedColumnName="id")
+     * })
+     */
+    private $idPatologia;
+
+
+}

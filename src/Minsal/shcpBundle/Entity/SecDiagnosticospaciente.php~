@@ -1,0 +1,101 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecDiagnosticospaciente
+ *
+ * @ORM\Table(name="sec_diagnosticospaciente", indexes={@ORM\Index(name="IDX_121FCE97BDEFC8C8", columns={"iddiagnostico1"}), @ORM\Index(name="IDX_121FCE9724E69972", columns={"iddiagnostico2"}), @ORM\Index(name="IDX_121FCE9753E1A9E4", columns={"iddiagnostico3"}), @ORM\Index(name="IDX_121FCE97A92D004C", columns={"idhistorialclinico"})})
+ * @ORM\Entity
+ */
+class SecDiagnosticospaciente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_diagnosticospaciente_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="procedimientos", type="text", nullable=true)
+     */
+    private $procedimientos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="examenesgabinete", type="text", nullable=true)
+     */
+    private $examenesgabinete;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcioncie101", type="text", nullable=true)
+     */
+    private $descripcioncie101;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcioncie102", type="text", nullable=true)
+     */
+    private $descripcioncie102;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcioncie103", type="text", nullable=true)
+     */
+    private $descripcioncie103;
+
+    /**
+     * @var \MntCie10
+     *
+     * @ORM\ManyToOne(targetEntity="MntCie10")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="iddiagnostico1", referencedColumnName="id")
+     * })
+     */
+    private $iddiagnostico1;
+
+    /**
+     * @var \MntCie10
+     *
+     * @ORM\ManyToOne(targetEntity="MntCie10")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="iddiagnostico2", referencedColumnName="id")
+     * })
+     */
+    private $iddiagnostico2;
+
+    /**
+     * @var \MntCie10
+     *
+     * @ORM\ManyToOne(targetEntity="MntCie10")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="iddiagnostico3", referencedColumnName="id")
+     * })
+     */
+    private $iddiagnostico3;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idhistorialclinico", referencedColumnName="id")
+     * })
+     */
+    private $idhistorialclinico;
+
+
+}

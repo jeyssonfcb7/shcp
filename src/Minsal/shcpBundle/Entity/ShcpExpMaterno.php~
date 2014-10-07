@@ -1,0 +1,165 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpExpMaterno
+ *
+ * @ORM\Table(name="shcp_exp_materno", indexes={@ORM\Index(name="IDX_73D83D42D9F3B251", columns={"id_mnt_expediente"}), @ORM\Index(name="IDX_73D83D427DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class ShcpExpMaterno
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_exp_materno_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_nombre", type="string", length=100, nullable=true)
+     */
+    private $expNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_apellido", type="string", length=100, nullable=true)
+     */
+    private $expApellido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_direccion", type="string", length=200, nullable=true)
+     */
+    private $expDireccion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_telefono", type="string", nullable=true)
+     */
+    private $expTelefono;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="exp_fecha_creacion", type="date", nullable=true)
+     */
+    private $expFechaCreacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exp_edad", type="integer", nullable=true)
+     */
+    private $expEdad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_edad_rgo", type="string", nullable=true)
+     */
+    private $expEdadRgo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_etnia", type="string", nullable=true)
+     */
+    private $expEtnia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_alfabeta", type="string", nullable=true)
+     */
+    private $expAlfabeta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_estudios", type="string", nullable=true)
+     */
+    private $expEstudios;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exp_anios_nivel_studio", type="integer", nullable=true)
+     */
+    private $expAniosNivelStudio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_vive_sola", type="string", nullable=true)
+     */
+    private $expViveSola;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exp_muni", type="integer", nullable=true)
+     */
+    private $expMuni;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exp_depto", type="integer", nullable=true)
+     */
+    private $expDepto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_doc_ident", type="string", length=20, nullable=true)
+     */
+    private $expDocIdent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_estado", type="string", nullable=true)
+     */
+    private $expEstado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exp_tipo_control", type="string", nullable=true)
+     */
+    private $expTipoControl;
+
+    /**
+     * @var \MntExpediente
+     *
+     * @ORM\ManyToOne(targetEntity="MntExpediente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_mnt_expediente", referencedColumnName="id")
+     * })
+     */
+    private $idMntExpediente;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

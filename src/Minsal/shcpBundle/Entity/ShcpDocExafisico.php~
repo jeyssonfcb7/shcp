@@ -1,0 +1,197 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpDocExafisico
+ *
+ * @ORM\Table(name="shcp_doc_exafisico", indexes={@ORM\Index(name="IDX_B1279CA5AF1DFD", columns={"id_hoja_post"})})
+ * @ORM\Entity
+ */
+class ShcpDocExafisico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_doc_exafisico_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exafi_fre_cardiaca", type="integer", nullable=true)
+     */
+    private $exafiFreCardiaca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exafi_fre_respirat", type="integer", nullable=true)
+     */
+    private $exafiFreRespirat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_pa_sistole", type="string", nullable=true)
+     */
+    private $exafiPaSistole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_pa_diastole", type="string", nullable=true)
+     */
+    private $exafiPaDiastole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_tempe", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $exafiTempe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_peso", type="decimal", precision=3, scale=1, nullable=true)
+     */
+    private $exafiPeso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exafi_altura", type="integer", nullable=true)
+     */
+    private $exafiAltura;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_imc", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $exafiImc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_cabeza", type="string", length=75, nullable=true)
+     */
+    private $exafiCabeza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_cuello", type="string", length=75, nullable=true)
+     */
+    private $exafiCuello;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_torax", type="string", length=75, nullable=true)
+     */
+    private $exafiTorax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_mamas", type="string", length=75, nullable=true)
+     */
+    private $exafiMamas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_abdomen", type="string", length=75, nullable=true)
+     */
+    private $exafiAbdomen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_utero", type="string", length=75, nullable=true)
+     */
+    private $exafiUtero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_cesa_eqb", type="string", length=75, nullable=true)
+     */
+    private $exafiCesaEqb;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_genitales", type="string", length=75, nullable=true)
+     */
+    private $exafiGenitales;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_loquios", type="string", length=75, nullable=true)
+     */
+    private $exafiLoquios;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_epi", type="string", length=75, nullable=true)
+     */
+    private $exafiEpi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_diag", type="string", length=150, nullable=true)
+     */
+    private $exafiDiag;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_conse", type="string", length=150, nullable=true)
+     */
+    private $exafiConse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_tratam", type="string", length=150, nullable=true)
+     */
+    private $exafiTratam;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="exafi_fecha_cita", type="date", nullable=true)
+     */
+    private $exafiFechaCita;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exafi_responsa", type="string", length=100, nullable=true)
+     */
+    private $exafiResponsa;
+
+    /**
+     * @var \ShcpDocHojaPostparto
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpDocHojaPostparto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_hoja_post", referencedColumnName="id")
+     * })
+     */
+    private $idHojaPost;
+
+
+}

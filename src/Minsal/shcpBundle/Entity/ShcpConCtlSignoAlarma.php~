@@ -1,0 +1,47 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpConCtlSignoAlarma
+ *
+ * @ORM\Table(name="shcp_con_ctl_signo_alarma")
+ * @ORM\Entity
+ */
+class ShcpConCtlSignoAlarma
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_con_ctl_signo_alarma_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sig_nombre", type="string", length=200, nullable=true)
+     */
+    private $sigNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sig_tipo", type="string", nullable=true)
+     */
+    private $sigTipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sig_estado", type="string", nullable=true)
+     */
+    private $sigEstado;
+
+
+}

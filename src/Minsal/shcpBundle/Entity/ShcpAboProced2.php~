@@ -1,0 +1,155 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboProced2
+ *
+ * @ORM\Table(name="shcp_abo_proced2", indexes={@ORM\Index(name="IDX_C7B8D603C5D115CC", columns={"id_proced1"})})
+ * @ORM\Entity
+ */
+class ShcpAboProced2
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_proced2_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="proc2_tam_uterino", type="integer", nullable=true)
+     */
+    private $proc2TamUterino;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="proc2_histeromet", type="integer", nullable=true)
+     */
+    private $proc2Histeromet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_anexos", type="string", nullable=true)
+     */
+    private $proc2Anexos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_fetidez", type="string", nullable=true)
+     */
+    private $proc2Fetidez;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_restos", type="string", nullable=true)
+     */
+    private $proc2Restos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_restos_inspec", type="string", nullable=true)
+     */
+    private $proc2RestosInspec;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_anat_ptg", type="string", nullable=true)
+     */
+    private $proc2AnatPtg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_compli", type="string", nullable=true)
+     */
+    private $proc2Compli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_compli_quirur", type="string", nullable=true)
+     */
+    private $proc2CompliQuirur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_otra_compli_quirur", type="string", length=25, nullable=true)
+     */
+    private $proc2OtraCompliQuirur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_compli_anest", type="string", nullable=true)
+     */
+    private $proc2CompliAnest;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_otra_compli_anest", type="string", length=25, nullable=true)
+     */
+    private $proc2OtraCompliAnest;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_repa_lesion_uter", type="string", nullable=true)
+     */
+    private $proc2RepaLesionUter;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_repa_lesion_cerv", type="string", nullable=true)
+     */
+    private $proc2RepaLesionCerv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_histerect", type="string", nullable=true)
+     */
+    private $proc2Histerect;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_sepsis", type="string", nullable=true)
+     */
+    private $proc2Sepsis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc2_respons", type="string", length=100, nullable=true)
+     */
+    private $proc2Respons;
+
+    /**
+     * @var \ShcpAboProced1
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboProced1")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_proced1", referencedColumnName="id")
+     * })
+     */
+    private $idProced1;
+
+
+}

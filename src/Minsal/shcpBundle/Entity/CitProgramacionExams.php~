@@ -1,0 +1,80 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CitProgramacionExams
+ *
+ * @ORM\Table(name="cit_programacion_exams", indexes={@ORM\Index(name="fki_lab_examen_establecimiento_cit_programacion_examen", columns={"id_examen_establecimiento"}), @ORM\Index(name="fki_fos_user_user_cit_programacion_exams", columns={"idusuarioreg"}), @ORM\Index(name="fki_mnt_aten_area_mod_estab_cit_programacion_exams", columns={"id_aten_area_mod_estab"}), @ORM\Index(name="IDX_3455D7497DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class CitProgramacionExams
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="cit_programacion_exams_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rangotiempoprev", type="integer", nullable=true)
+     */
+    private $rangotiempoprev;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \LabExamenesxestablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="LabExamenesxestablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_examen_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idExamenEstablecimiento;
+
+    /**
+     * @var \MntAtenAreaModEstab
+     *
+     * @ORM\ManyToOne(targetEntity="MntAtenAreaModEstab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_aten_area_mod_estab", referencedColumnName="id")
+     * })
+     */
+    private $idAtenAreaModEstab;
+
+
+}

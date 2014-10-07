@@ -1,0 +1,71 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmSeccionPool
+ *
+ * @ORM\Table(name="frm_seccion_pool", indexes={@ORM\Index(name="IDX_A43775673E20BCB9", columns={"id_seccion"})})
+ * @ORM\Entity
+ */
+class FrmSeccionPool
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_seccion_pool_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="activo", type="boolean", nullable=false)
+     */
+    private $activo = true;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
+     */
+    private $fechaInicio = 'now';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_fin", type="date", nullable=true)
+     */
+    private $fechaFin;
+
+    /**
+     * @var \FrmSeccion
+     *
+     * @ORM\ManyToOne(targetEntity="FrmSeccion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_seccion", referencedColumnName="id")
+     * })
+     */
+    private $idSeccion;
+
+
+}

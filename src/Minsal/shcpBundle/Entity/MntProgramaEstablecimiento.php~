@@ -1,0 +1,53 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntProgramaEstablecimiento
+ *
+ * @ORM\Table(name="mnt_programa_establecimiento", indexes={@ORM\Index(name="IDX_FFEE60ED7DFA12F6", columns={"id_establecimiento"}), @ORM\Index(name="IDX_FFEE60ED522BF898", columns={"id_programa"})})
+ * @ORM\Entity
+ */
+class MntProgramaEstablecimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_programa_establecimiento_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="condicion", type="string", nullable=true)
+     */
+    private $condicion;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+    /**
+     * @var \CtlPrograma
+     *
+     * @ORM\ManyToOne(targetEntity="CtlPrograma")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_programa", referencedColumnName="id")
+     * })
+     */
+    private $idPrograma;
+
+
+}

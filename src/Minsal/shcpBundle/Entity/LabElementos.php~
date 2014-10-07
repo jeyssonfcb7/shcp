@@ -1,0 +1,122 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabElementos
+ *
+ * @ORM\Table(name="lab_elementos", indexes={@ORM\Index(name="fki_establecimiento_elementos", columns={"idestablecimiento"}), @ORM\Index(name="IDX_668316CA35F12240", columns={"idexamen"}), @ORM\Index(name="IDX_668316CA6724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_668316CA13B895A1", columns={"idusuarioreg"})})
+ * @ORM\Entity
+ */
+class LabElementos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_elementos_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subelemento", type="string", length=1, nullable=true)
+     */
+    private $subelemento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="elemento", type="string", length=150, nullable=true)
+     */
+    private $elemento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unidadelem", type="string", length=30, nullable=true)
+     */
+    private $unidadelem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observelem", type="string", length=250, nullable=true)
+     */
+    private $observelem;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaini", type="date", nullable=true)
+     */
+    private $fechaini;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechafin", type="date", nullable=true)
+     */
+    private $fechafin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var \CtlExamenServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlExamenServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idexamen", referencedColumnName="id")
+     * })
+     */
+    private $idexamen;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+
+}

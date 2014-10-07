@@ -1,0 +1,78 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsVacunacion
+ *
+ * @ORM\Table(name="shcp_ins_vacunacion", indexes={@ORM\Index(name="IDX_5A2357BF93489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpInsVacunacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_vacunacion_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_antirubeo", type="string", nullable=true)
+     */
+    private $vacuAntirubeo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_antite_vigente", type="string", nullable=true)
+     */
+    private $vacuAntiteVigente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_antite_dosis1", type="string", nullable=true)
+     */
+    private $vacuAntiteDosis1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_antite_dosis2", type="string", nullable=true)
+     */
+    private $vacuAntiteDosis2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_h1n1", type="string", nullable=true)
+     */
+    private $vacuH1n1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vacu_h1n1_mes", type="string", nullable=true)
+     */
+    private $vacuH1n1Mes;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

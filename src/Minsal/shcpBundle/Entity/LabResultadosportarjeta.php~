@@ -1,0 +1,70 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabResultadosportarjeta
+ *
+ * @ORM\Table(name="lab_resultadosportarjeta", indexes={@ORM\Index(name="IDX_7834A74689EFF53A", columns={"idantibiotico"}), @ORM\Index(name="IDX_7834A746692E4D2C", columns={"iddetalleresultado"}), @ORM\Index(name="IDX_7834A74675BB31F7", columns={"idestablecimiento"})})
+ * @ORM\Entity
+ */
+class LabResultadosportarjeta
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_resultadosportarjeta_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultado", type="string", length=10, nullable=true)
+     */
+    private $resultado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="valor", type="string", length=20, nullable=true)
+     */
+    private $valor;
+
+    /**
+     * @var \LabAntibioticos
+     *
+     * @ORM\ManyToOne(targetEntity="LabAntibioticos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idantibiotico", referencedColumnName="id")
+     * })
+     */
+    private $idantibiotico;
+
+    /**
+     * @var \LabDetalleresultado
+     *
+     * @ORM\ManyToOne(targetEntity="LabDetalleresultado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="iddetalleresultado", referencedColumnName="id")
+     * })
+     */
+    private $iddetalleresultado;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+
+}

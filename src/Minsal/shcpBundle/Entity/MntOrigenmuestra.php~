@@ -1,0 +1,84 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntOrigenmuestra
+ *
+ * @ORM\Table(name="mnt_origenmuestra", indexes={@ORM\Index(name="IDX_8B9FA3D16724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_8B9FA3D113B895A1", columns={"idusuarioreg"}), @ORM\Index(name="IDX_8B9FA3D1DAB57264", columns={"idtipomuestra"})})
+ * @ORM\Entity
+ */
+class MntOrigenmuestra
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_origenmuestra_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="origenmuestra", type="string", length=60, nullable=true)
+     */
+    private $origenmuestra;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="habilitado", type="boolean", nullable=false)
+     */
+    private $habilitado = true;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \LabTipomuestra
+     *
+     * @ORM\ManyToOne(targetEntity="LabTipomuestra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idtipomuestra", referencedColumnName="id")
+     * })
+     */
+    private $idtipomuestra;
+
+
+}

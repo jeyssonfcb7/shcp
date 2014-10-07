@@ -1,0 +1,92 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpPrePaciente
+ *
+ * @ORM\Table(name="shcp_pre_paciente", indexes={@ORM\Index(name="IDX_988D557B93489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpPrePaciente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_pre_paciente_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="pre_fecha", type="date", nullable=true)
+     */
+    private $preFecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_peso_pte", type="decimal", precision=3, scale=1, nullable=true)
+     */
+    private $prePesoPte;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pre_talla_pte", type="integer", nullable=true)
+     */
+    private $preTallaPte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_temp_pte", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $preTempPte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_pa_sistole", type="string", nullable=true)
+     */
+    private $prePaSistole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_pa_diastole", type="string", nullable=true)
+     */
+    private $prePaDiastole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_destino_pte", type="string", nullable=true)
+     */
+    private $preDestinoPte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pre_detalle_obser", type="string", length=150, nullable=true)
+     */
+    private $preDetalleObser;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

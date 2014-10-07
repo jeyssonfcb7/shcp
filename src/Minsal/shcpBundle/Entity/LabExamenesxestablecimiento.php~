@@ -1,0 +1,139 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabExamenesxestablecimiento
+ *
+ * @ORM\Table(name="lab_examenesxestablecimiento", indexes={@ORM\Index(name="IDX_778454F235F12240", columns={"idexamen"}), @ORM\Index(name="IDX_778454F212C7E9A0", columns={"idestandarrep"}), @ORM\Index(name="IDX_778454F26724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_778454F213B895A1", columns={"idusuarioreg"}), @ORM\Index(name="IDX_778454F28865BA6", columns={"idplantilla"})})
+ * @ORM\Entity
+ */
+class LabExamenesxestablecimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_examenesxestablecimiento_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="condicion", type="string", nullable=false)
+     */
+    private $condicion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idformulario", type="integer", nullable=false)
+     */
+    private $idformulario;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="urgente", type="integer", nullable=true)
+     */
+    private $urgente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="impresion", type="string", nullable=true)
+     */
+    private $impresion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ubicacion", type="smallint", nullable=true)
+     */
+    private $ubicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigosumi", type="string", length=8, nullable=true)
+     */
+    private $codigosumi;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_examen", type="string", length=250, nullable=true)
+     */
+    private $nombreExamen;
+
+    /**
+     * @var \MntAreaExamenEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreaExamenEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idexamen", referencedColumnName="id")
+     * })
+     */
+    private $idexamen;
+
+    /**
+     * @var \CtlExamenServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlExamenServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestandarrep", referencedColumnName="id")
+     * })
+     */
+    private $idestandarrep;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \LabPlantilla
+     *
+     * @ORM\ManyToOne(targetEntity="LabPlantilla")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idplantilla", referencedColumnName="id")
+     * })
+     */
+    private $idplantilla;
+
+
+}

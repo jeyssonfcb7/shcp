@@ -1,0 +1,85 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntConexion
+ *
+ * @ORM\Table(name="mnt_conexion", indexes={@ORM\Index(name="IDX_7C97F35A7DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class MntConexion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_conexion_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="host", type="string", length=20, nullable=false)
+     */
+    private $host;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usuario", type="string", length=15, nullable=false)
+     */
+    private $usuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contrasenia", type="string", length=150, nullable=false)
+     */
+    private $contrasenia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="puerto", type="integer", nullable=false)
+     */
+    private $puerto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="base_de_datos", type="string", length=20, nullable=false)
+     */
+    private $baseDeDatos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gestor_base", type="string", length=10, nullable=false)
+     */
+    private $gestorBase;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

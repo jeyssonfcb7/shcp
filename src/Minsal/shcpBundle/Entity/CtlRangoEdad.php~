@@ -1,0 +1,103 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlRangoEdad
+ *
+ * @ORM\Table(name="ctl_rango_edad")
+ * @ORM\Entity
+ */
+class CtlRangoEdad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_rango_edad_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_minima_anios", type="integer", nullable=false)
+     */
+    private $edadMinimaAnios = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_minima_meses", type="integer", nullable=false)
+     */
+    private $edadMinimaMeses = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_minima_dias", type="integer", nullable=false)
+     */
+    private $edadMinimaDias = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_minima_horas", type="integer", nullable=false)
+     */
+    private $edadMinimaHoras = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_minima_minutos", type="integer", nullable=false)
+     */
+    private $edadMinimaMinutos = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_maxima_anios", type="integer", nullable=false)
+     */
+    private $edadMaximaAnios;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_maxima_meses", type="integer", nullable=false)
+     */
+    private $edadMaximaMeses;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_maxima_dias", type="integer", nullable=false)
+     */
+    private $edadMaximaDias;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_maxima_horas", type="integer", nullable=false)
+     */
+    private $edadMaximaHoras;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad_maxima_minutos", type="integer", nullable=false)
+     */
+    private $edadMaximaMinutos;
+
+
+}

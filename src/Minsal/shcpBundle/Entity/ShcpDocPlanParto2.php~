@@ -1,0 +1,88 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpDocPlanParto2
+ *
+ * @ORM\Table(name="shcp_doc_plan_parto2", indexes={@ORM\Index(name="IDX_B415C3198B6D3E9A", columns={"id_plan_parto"}), @ORM\Index(name="IDX_B415C3196B3CA4B", columns={"id_user"})})
+ * @ORM\Entity
+ */
+class ShcpDocPlanParto2
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_doc_plan_parto2_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=15, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="plan_fecha", type="date", nullable=true)
+     */
+    private $planFecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_tiempo", type="string", nullable=true)
+     */
+    private $planTiempo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_par_familia", type="string", nullable=true)
+     */
+    private $planParFamilia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_gan_peso", type="string", nullable=true)
+     */
+    private $planGanPeso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plan_hierro_acido", type="string", nullable=true)
+     */
+    private $planHierroAcido;
+
+    /**
+     * @var \ShcpDocPlanParto
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpDocPlanParto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_plan_parto", referencedColumnName="id")
+     * })
+     */
+    private $idPlanParto;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+
+}

@@ -1,0 +1,102 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParEgresoMaterno
+ *
+ * @ORM\Table(name="shcp_par_egreso_materno", indexes={@ORM\Index(name="IDX_549DEFBAD766E548", columns={"id_admision_parto"}), @ORM\Index(name="IDX_549DEFBA7DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class ShcpParEgresoMaterno
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_egreso_materno_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egma_condicion", type="string", nullable=true)
+     */
+    private $egmaCondicion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egma_fecha", type="date", nullable=true)
+     */
+    private $egmaFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egma_hora", type="time", nullable=true)
+     */
+    private $egmaHora;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egma_medico_responsab", type="bigint", nullable=true)
+     */
+    private $egmaMedicoResponsab;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egma_fallece_traslado", type="string", nullable=true)
+     */
+    private $egmaFalleceTraslado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egma_dias_desde_parto", type="integer", nullable=true)
+     */
+    private $egmaDiasDesdeParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egma_consejeria_anticoncep", type="string", nullable=true)
+     */
+    private $egmaConsejeriaAnticoncep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egma_metodo_elegido", type="string", nullable=true)
+     */
+    private $egmaMetodoElegido;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

@@ -1,0 +1,60 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmInsercionDependencia
+ *
+ * @ORM\Table(name="frm_insercion_dependencia", indexes={@ORM\Index(name="IDX_AECA1748B1403A61", columns={"id_grupo_insercion_dependiente"}), @ORM\Index(name="IDX_AECA174871CFA0BD", columns={"id_grupo_insercion_padre"})})
+ * @ORM\Entity
+ */
+class FrmInsercionDependencia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_insercion_dependencia_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="campo_destino", type="text", nullable=false)
+     */
+    private $campoDestino;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="campo_origen", type="text", nullable=false)
+     */
+    private $campoOrigen;
+
+    /**
+     * @var \FrmGrupoInsercion
+     *
+     * @ORM\ManyToOne(targetEntity="FrmGrupoInsercion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_grupo_insercion_dependiente", referencedColumnName="id")
+     * })
+     */
+    private $idGrupoInsercionDependiente;
+
+    /**
+     * @var \FrmGrupoInsercion
+     *
+     * @ORM\ManyToOne(targetEntity="FrmGrupoInsercion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_grupo_insercion_padre", referencedColumnName="id")
+     * })
+     */
+    private $idGrupoInsercionPadre;
+
+
+}

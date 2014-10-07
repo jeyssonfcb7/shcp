@@ -1,0 +1,47 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboCtlCie10
+ *
+ * @ORM\Table(name="shcp_abo_ctl_cie10")
+ * @ORM\Entity
+ */
+class ShcpAboCtlCie10
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_ctl_cie10_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cie10_nombre", type="string", length=100, nullable=true)
+     */
+    private $cie10Nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cie10_tipo", type="string", nullable=true)
+     */
+    private $cie10Tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cie10_estado", type="string", nullable=true)
+     */
+    private $cie10Estado;
+
+
+}

@@ -1,0 +1,50 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmItemCatalogoReg
+ *
+ * @ORM\Table(name="frm_item_catalogo_reg", indexes={@ORM\Index(name="IDX_13C81480AB55561E", columns={"id_form_item_catalogo"})})
+ * @ORM\Entity
+ */
+class FrmItemCatalogoReg
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_item_catalogo_reg_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_registro", type="integer", nullable=false)
+     */
+    private $idRegistro;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="indica_alerta", type="boolean", nullable=false)
+     */
+    private $indicaAlerta = false;
+
+    /**
+     * @var \FrmFormItemCatalogo
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormItemCatalogo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_form_item_catalogo", referencedColumnName="id")
+     * })
+     */
+    private $idFormItemCatalogo;
+
+
+}

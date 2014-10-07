@@ -1,0 +1,204 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsExamen
+ *
+ * @ORM\Table(name="shcp_ins_examen", indexes={@ORM\Index(name="IDX_ADDC684593489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpInsExamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_examen_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_odont", type="string", nullable=true)
+     */
+    private $exaOdont;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_mama", type="string", nullable=true)
+     */
+    private $exaMama;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_cervix_insp_visual", type="string", nullable=true)
+     */
+    private $exaCervixInspVisual;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_cervix_insp_pap", type="string", nullable=true)
+     */
+    private $exaCervixInspPap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_cervix_insp_colp", type="string", nullable=true)
+     */
+    private $exaCervixInspColp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_gpo_rh", type="string", nullable=true)
+     */
+    private $exaGpoRh;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_rh_signo", type="string", nullable=true)
+     */
+    private $exaRhSigno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_globulina_antid", type="string", nullable=true)
+     */
+    private $exaGlobulinaAntid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_toxo_igg_mnos20", type="string", nullable=true)
+     */
+    private $exaToxoIggMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_toxo_igg_mas20", type="string", nullable=true)
+     */
+    private $exaToxoIggMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_toxo_consulta1_igm", type="string", nullable=true)
+     */
+    private $exaToxoConsulta1Igm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_hb_mnos20", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $exaHbMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_hb_11g_mnos20", type="string", nullable=true)
+     */
+    private $exaHb11gMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_hb_mas20", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $exaHbMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_hb_11g_mas20", type="string", nullable=true)
+     */
+    private $exaHb11gMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_fe", type="string", nullable=true)
+     */
+    private $exaFe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_folatos", type="string", nullable=true)
+     */
+    private $exaFolatos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_bacte_mnos20", type="string", nullable=true)
+     */
+    private $exaBacteMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_bacte_mas20", type="string", nullable=true)
+     */
+    private $exaBacteMas20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exa_gluce_mnos20", type="integer", nullable=true)
+     */
+    private $exaGluceMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_gluce_105_mnos20", type="string", nullable=true)
+     */
+    private $exaGluce105Mnos20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="exa_gluce_mas30", type="integer", nullable=true)
+     */
+    private $exaGluceMas30;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_gluce_105_mas30", type="string", nullable=true)
+     */
+    private $exaGluce105Mas30;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="exa_estcocob", type="string", nullable=true)
+     */
+    private $exaEstcocob;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

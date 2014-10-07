@@ -1,0 +1,91 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabTarjetasvitek
+ *
+ * @ORM\Table(name="lab_tarjetasvitek", indexes={@ORM\Index(name="IDX_B51A39F475BB31F7", columns={"idestablecimiento"}), @ORM\Index(name="IDX_B51A39F46724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_B51A39F413B895A1", columns={"idusuarioreg"})})
+ * @ORM\Entity
+ */
+class LabTarjetasvitek
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_tarjetasvitek_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombretarjeta", type="string", length=75, nullable=true)
+     */
+    private $nombretarjeta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaini", type="date", nullable=true)
+     */
+    private $fechaini;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechafin", type="date", nullable=true)
+     */
+    private $fechafin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+
+}

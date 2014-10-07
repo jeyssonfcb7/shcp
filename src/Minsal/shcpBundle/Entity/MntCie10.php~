@@ -1,0 +1,96 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntCie10
+ *
+ * @ORM\Table(name="mnt_cie10", uniqueConstraints={@ORM\UniqueConstraint(name="idx_idcie10", columns={"codigo"})})
+ * @ORM\Entity
+ */
+class MntCie10
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_cie10_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=5, nullable=false)
+     */
+    private $codigo = '';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="grupom", type="integer", nullable=false)
+     */
+    private $grupom = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codgrupo", type="integer", nullable=false)
+     */
+    private $codgrupo = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diagnostico", type="string", length=130, nullable=true)
+     */
+    private $diagnostico;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="alarma", type="smallint", nullable=true)
+     */
+    private $alarma = '(0)::smallint';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sexo_cie10", type="smallint", nullable=false)
+     */
+    private $sexoCie10 = '(0)::smallint';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="c_salida", type="integer", nullable=true)
+     */
+    private $cSalida;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mayor", type="integer", nullable=true)
+     */
+    private $mayor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="menor", type="integer", nullable=true)
+     */
+    private $menor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="critico", type="smallint", nullable=true)
+     */
+    private $critico = '(0)::smallint';
+
+
+}

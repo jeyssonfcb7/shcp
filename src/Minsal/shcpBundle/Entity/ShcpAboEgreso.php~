@@ -1,0 +1,148 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboEgreso
+ *
+ * @ORM\Table(name="shcp_abo_egreso", indexes={@ORM\Index(name="IDX_B6BBD31ACDD53299", columns={"id_admin_proceden"})})
+ * @ORM\Entity
+ */
+class ShcpAboEgreso
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_egreso_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_antcp_metodo", type="string", nullable=true)
+     */
+    private $egrAntcpMetodo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egr_fecha", type="date", nullable=true)
+     */
+    private $egrFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="egr_hora", type="time", nullable=true)
+     */
+    private $egrHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_tratamient", type="string", nullable=true)
+     */
+    private $egrTratamient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_tipo", type="string", nullable=true)
+     */
+    private $egrTipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_condicion", type="string", nullable=true)
+     */
+    private $egrCondicion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egr_lugar_traslado", type="integer", nullable=true)
+     */
+    private $egrLugarTraslado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_fallece_traslado", type="string", nullable=true)
+     */
+    private $egrFalleceTraslado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_autopsia", type="string", nullable=true)
+     */
+    private $egrAutopsia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_cod_diag_cie10", type="string", nullable=true)
+     */
+    private $egrCodDiagCie10;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_antirube", type="string", nullable=true)
+     */
+    private $egrAntirube;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_globulina", type="string", nullable=true)
+     */
+    private $egrGlobulina;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_referida", type="string", nullable=true)
+     */
+    private $egrReferida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_otro_especific", type="string", length=100, nullable=true)
+     */
+    private $egrOtroEspecific;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="egr_otro_establec", type="integer", nullable=true)
+     */
+    private $egrOtroEstablec;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="egr_respons", type="string", length=100, nullable=true)
+     */
+    private $egrRespons;
+
+    /**
+     * @var \ShcpAboAdmisionProceden
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboAdmisionProceden")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admin_proceden", referencedColumnName="id")
+     * })
+     */
+    private $idAdminProceden;
+
+
+}

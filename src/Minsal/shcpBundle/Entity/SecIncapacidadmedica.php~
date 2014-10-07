@@ -1,0 +1,74 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecIncapacidadmedica
+ *
+ * @ORM\Table(name="sec_incapacidadmedica", indexes={@ORM\Index(name="IDX_18BCE6E343F314A6", columns={"idnumeroexp"}), @ORM\Index(name="IDX_18BCE6E3A92D004C", columns={"idhistorialclinico"})})
+ * @ORM\Entity
+ */
+class SecIncapacidadmedica
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="incapacidadmedica", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_incapacidadmedica_incapacidadmedica_seq", allocationSize=1, initialValue=1)
+     */
+    private $incapacidadmedica;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motivoincapacidad", type="string", length=500, nullable=true)
+     */
+    private $motivoincapacidad;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechainicioincapacidad", type="date", nullable=true)
+     */
+    private $fechainicioincapacidad;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaemision", type="date", nullable=true)
+     */
+    private $fechaemision;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="remitente", type="string", length=500, nullable=true)
+     */
+    private $remitente;
+
+    /**
+     * @var \MntExpediente
+     *
+     * @ORM\ManyToOne(targetEntity="MntExpediente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idnumeroexp", referencedColumnName="numero")
+     * })
+     */
+    private $idnumeroexp;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idhistorialclinico", referencedColumnName="id")
+     * })
+     */
+    private $idhistorialclinico;
+
+
+}

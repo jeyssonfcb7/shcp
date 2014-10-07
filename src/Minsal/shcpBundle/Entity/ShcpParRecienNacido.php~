@@ -1,0 +1,197 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParRecienNacido
+ *
+ * @ORM\Table(name="shcp_par_recien_nacido", indexes={@ORM\Index(name="IDX_26767CEFD766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParRecienNacido
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_recien_nacido_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_orden", type="string", nullable=true)
+     */
+    private $renOrden;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_sexo", type="string", nullable=true)
+     */
+    private $renSexo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ren_peso", type="integer", nullable=true)
+     */
+    private $renPeso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_peso_men2500", type="string", nullable=true)
+     */
+    private $renPesoMen2500;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_peso_may4000", type="string", nullable=true)
+     */
+    private $renPesoMay4000;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_perimetro_cefal", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $renPerimetroCefal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_longitud", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $renLongitud;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ren_edad_gest_sem", type="integer", nullable=true)
+     */
+    private $renEdadGestSem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ren_edad_gest_dias", type="integer", nullable=true)
+     */
+    private $renEdadGestDias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_calculado_por", type="string", nullable=true)
+     */
+    private $renCalculadoPor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_peso_edad_gest", type="string", nullable=true)
+     */
+    private $renPesoEdadGest;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_apgar_1min", type="string", nullable=true)
+     */
+    private $renApgar1min;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_apgar_5min", type="string", nullable=true)
+     */
+    private $renApgar5min;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_reanima", type="string", nullable=true)
+     */
+    private $renReanima;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_fallece_lugar_parto", type="string", nullable=true)
+     */
+    private $renFalleceLugarParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_referido", type="string", nullable=true)
+     */
+    private $renReferido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_defect_conge", type="string", nullable=true)
+     */
+    private $renDefectConge;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_otro_defect_conge", type="string", nullable=true)
+     */
+    private $renOtroDefectConge;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_vih_expuesto", type="string", nullable=true)
+     */
+    private $renVihExpuesto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_vih_tratamient", type="string", nullable=true)
+     */
+    private $renVihTratamient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_meconio_1dia", type="string", nullable=true)
+     */
+    private $renMeconio1dia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ren_neo_atend_por", type="string", nullable=true)
+     */
+    private $renNeoAtendPor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ren_atend_neo", type="bigint", nullable=true)
+     */
+    private $renAtendNeo;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

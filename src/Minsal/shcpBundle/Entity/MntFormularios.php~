@@ -1,0 +1,61 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntFormularios
+ *
+ * @ORM\Table(name="mnt_formularios")
+ * @ORM\Entity
+ */
+class MntFormularios
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_formularios_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreformulario", type="string", length=100, nullable=false)
+     */
+    private $nombreformulario;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuarioreg", type="smallint", nullable=true)
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuariomod", type="smallint", nullable=true)
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+
+}

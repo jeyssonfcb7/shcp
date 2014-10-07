@@ -1,0 +1,78 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntCiq
+ *
+ * @ORM\Table(name="mnt_ciq", uniqueConstraints={@ORM\UniqueConstraint(name="idx_mnt_ciq", columns={"codigo"})}, indexes={@ORM\Index(name="IDX_36321B7A3405215", columns={"id_tipo_procedimiento"})})
+ * @ORM\Entity
+ */
+class MntCiq
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_ciq_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=6, nullable=false)
+     */
+    private $codigo = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="procedimiento", type="string", length=250, nullable=false)
+     */
+    private $procedimiento = '';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuarioreg", type="smallint", nullable=true)
+     */
+    private $idusuarioreg = '(0)::smallint';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuariomod", type="smallint", nullable=true)
+     */
+    private $idusuariomod = '(0)::smallint';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \MntTipoProcedimiento
+     *
+     * @ORM\ManyToOne(targetEntity="MntTipoProcedimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_procedimiento", referencedColumnName="id")
+     * })
+     */
+    private $idTipoProcedimiento;
+
+
+}

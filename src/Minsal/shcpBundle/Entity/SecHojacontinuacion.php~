@@ -1,0 +1,57 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecHojacontinuacion
+ *
+ * @ORM\Table(name="sec_hojacontinuacion", indexes={@ORM\Index(name="IDX_59E02586A92D004C", columns={"idhistorialclinico"})})
+ * @ORM\Entity
+ */
+class SecHojacontinuacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_hojacontinuacion_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motivoconsulta", type="text", nullable=false)
+     */
+    private $motivoconsulta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="evolucionpaciente", type="text", nullable=false)
+     */
+    private $evolucionpaciente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hxexamenes", type="text", nullable=true)
+     */
+    private $hxexamenes;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idhistorialclinico", referencedColumnName="id")
+     * })
+     */
+    private $idhistorialclinico;
+
+
+}

@@ -1,0 +1,57 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntFarmaciaxestablecimiento
+ *
+ * @ORM\Table(name="mnt_farmaciaxestablecimiento", indexes={@ORM\Index(name="IDX_791D56B947B0200", columns={"idfarmacia"})})
+ * @ORM\Entity
+ */
+class MntFarmaciaxestablecimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_farmaciaxestablecimiento_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idestablecimiento", type="integer", nullable=false)
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="habilitadofarmacia", type="string", nullable=false)
+     */
+    private $habilitadofarmacia = 'N';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmodalidad", type="integer", nullable=false)
+     */
+    private $idmodalidad;
+
+    /**
+     * @var \MntFarmacia
+     *
+     * @ORM\ManyToOne(targetEntity="MntFarmacia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idfarmacia", referencedColumnName="id")
+     * })
+     */
+    private $idfarmacia;
+
+
+}

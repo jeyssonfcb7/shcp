@@ -1,0 +1,196 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParNacimiento
+ *
+ * @ORM\Table(name="shcp_par_nacimiento", indexes={@ORM\Index(name="IDX_F2E4B155D766E548", columns={"id_admision_parto"}), @ORM\Index(name="IDX_F2E4B155C82E5C62", columns={"id_indicacion_parto"}), @ORM\Index(name="IDX_F2E4B1557DFA12F6", columns={"id_establecimiento"})})
+ * @ORM\Entity
+ */
+class ShcpParNacimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_nacimiento_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_tipo_nacimiento", type="string", nullable=true)
+     */
+    private $nacTipoNacimiento;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="nac_fec_nacimiento", type="date", nullable=true)
+     */
+    private $nacFecNacimiento;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="nac_hora_nacimiento", type="time", nullable=true)
+     */
+    private $nacHoraNacimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_multiple", type="string", nullable=true)
+     */
+    private $nacMultiple;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_orden", type="string", nullable=true)
+     */
+    private $nacOrden;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_terminac", type="string", nullable=true)
+     */
+    private $nacTerminac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_posicion_parto", type="string", nullable=true)
+     */
+    private $nacPosicionParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_episioto", type="string", nullable=true)
+     */
+    private $nacEpisioto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_desgarros", type="string", nullable=true)
+     */
+    private $nacDesgarros;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_ocitocicos_prealumb", type="string", nullable=true)
+     */
+    private $nacOcitocicosPrealumb;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_ocitocicos_postlumb", type="string", nullable=true)
+     */
+    private $nacOcitocicosPostlumb;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_placenta_completa", type="string", nullable=true)
+     */
+    private $nacPlacentaCompleta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_placenta_retenida", type="string", nullable=true)
+     */
+    private $nacPlacentaRetenida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_ligadura_precoz", type="string", nullable=true)
+     */
+    private $nacLigaduraPrecoz;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_medicacion_recibida", type="string", nullable=true)
+     */
+    private $nacMedicacionRecibida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_otros_medic", type="string", nullable=true)
+     */
+    private $nacOtrosMedic;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_otro_medic1", type="string", nullable=true)
+     */
+    private $nacOtroMedic1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_otro_medic2", type="string", nullable=true)
+     */
+    private $nacOtroMedic2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nac_parto_atendido_por", type="string", nullable=true)
+     */
+    private $nacPartoAtendidoPor;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nac_atendio_parto", type="bigint", nullable=true)
+     */
+    private $nacAtendioParto;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+    /**
+     * @var \ShcpParCtlIndicacion
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParCtlIndicacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_indicacion_parto", referencedColumnName="id")
+     * })
+     */
+    private $idIndicacionParto;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+
+}

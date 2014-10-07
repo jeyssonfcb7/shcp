@@ -1,0 +1,134 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsSifilis
+ *
+ * @ORM\Table(name="shcp_ins_sifilis", indexes={@ORM\Index(name="IDX_AC4338B993489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpInsSifilis
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_sifilis_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_pru_not_res_mnos20", type="string", nullable=true)
+     */
+    private $sifiPruNotResMnos20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_pru_not_sem_mnos20", type="integer", nullable=true)
+     */
+    private $sifiPruNotSemMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_pru_tre_res_mnos20", type="string", nullable=true)
+     */
+    private $sifiPruTreResMnos20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_pru_tre_sem_mnos20", type="integer", nullable=true)
+     */
+    private $sifiPruTreSemMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_pru_not_res_mas20", type="string", nullable=true)
+     */
+    private $sifiPruNotResMas20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_pru_not_sem_mas20", type="integer", nullable=true)
+     */
+    private $sifiPruNotSemMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_pru_tre_res_mas20", type="string", nullable=true)
+     */
+    private $sifiPruTreResMas20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_pru_tre_sem_mas20", type="integer", nullable=true)
+     */
+    private $sifiPruTreSemMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_trata_mnos20", type="string", nullable=true)
+     */
+    private $sifiTrataMnos20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_trata_sem_mnos20", type="integer", nullable=true)
+     */
+    private $sifiTrataSemMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_trata_par_mnos20", type="string", nullable=true)
+     */
+    private $sifiTrataParMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_trata_mas20", type="string", nullable=true)
+     */
+    private $sifiTrataMas20;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sifi_trata_sem_mas20", type="integer", nullable=true)
+     */
+    private $sifiTrataSemMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sifi_trata_par_mas20", type="string", nullable=true)
+     */
+    private $sifiTrataParMas20;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

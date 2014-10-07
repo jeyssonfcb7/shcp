@@ -1,0 +1,85 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParRoturaMembrana
+ *
+ * @ORM\Table(name="shcp_par_rotura_membrana", indexes={@ORM\Index(name="IDX_2C26F723D766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParRoturaMembrana
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_rotura_membrana_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rotu_existencia", type="string", nullable=true)
+     */
+    private $rotuExistencia;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="rotu_fecha", type="date", nullable=true)
+     */
+    private $rotuFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="rotu_hora", type="time", nullable=true)
+     */
+    private $rotuHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rotu_men_37sem", type="string", nullable=true)
+     */
+    private $rotuMen37sem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rotu_may_igual_18hrs", type="string", nullable=true)
+     */
+    private $rotuMayIgual18hrs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rotu_temp", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $rotuTemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rotura_temp_may_igual_38c", type="string", nullable=true)
+     */
+    private $roturaTempMayIgual38c;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

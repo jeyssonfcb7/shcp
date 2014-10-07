@@ -1,0 +1,132 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecHistorialClinico
+ *
+ * @ORM\Table(name="sec_historial_clinico", indexes={@ORM\Index(name="fki_mnt_aten_area_mod_estab_sec_historial_clinico", columns={"idsubservicio"}), @ORM\Index(name="fki_fos_user_user_sec_historial_clinico", columns={"idusuarioreg"}), @ORM\Index(name="IDX_B5886216890253C7", columns={"id_empleado"}), @ORM\Index(name="IDX_B5886216445651A7", columns={"id_numero_expediente"}), @ORM\Index(name="IDX_B588621675BB31F7", columns={"idestablecimiento"})})
+ * @ORM\Entity
+ */
+class SecHistorialClinico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_historial_clinico_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="datosclinicos", type="string", length=200, nullable=true)
+     */
+    private $datosclinicos;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaconsulta", type="date", nullable=true)
+     */
+    private $fechaconsulta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="seguimientoconsultaext", type="string", nullable=true)
+     */
+    private $seguimientoconsultaext;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="piloto", type="string", nullable=true)
+     */
+    private $piloto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipaddress", type="string", length=15, nullable=true)
+     */
+    private $ipaddress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idnumeroexp", type="string", nullable=true)
+     */
+    private $idnumeroexp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmodalidad", type="integer", nullable=true)
+     */
+    private $idmodalidad;
+
+    /**
+     * @var \MntEmpleado
+     *
+     * @ORM\ManyToOne(targetEntity="MntEmpleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_empleado", referencedColumnName="id")
+     * })
+     */
+    private $idEmpleado;
+
+    /**
+     * @var \MntExpediente
+     *
+     * @ORM\ManyToOne(targetEntity="MntExpediente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_numero_expediente", referencedColumnName="id")
+     * })
+     */
+    private $idNumeroExpediente;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \MntAtenAreaModEstab
+     *
+     * @ORM\ManyToOne(targetEntity="MntAtenAreaModEstab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsubservicio", referencedColumnName="id")
+     * })
+     */
+    private $idsubservicio;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+
+}

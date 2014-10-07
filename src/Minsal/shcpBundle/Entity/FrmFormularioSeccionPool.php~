@@ -1,0 +1,70 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmFormularioSeccionPool
+ *
+ * @ORM\Table(name="frm_formulario_seccion_pool", uniqueConstraints={@ORM\UniqueConstraint(name="idx_formulario_seccion_pool", columns={"id_formulario", "id_seccion_pool"})}, indexes={@ORM\Index(name="IDX_E647D45AA7C7EF6A", columns={"id_formulario"}), @ORM\Index(name="IDX_E647D45A3DE02BDB", columns={"id_padre"}), @ORM\Index(name="IDX_E647D45AC14F1F47", columns={"id_seccion_pool"})})
+ * @ORM\Entity
+ */
+class FrmFormularioSeccionPool
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_formulario_seccion_pool_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orden", type="integer", nullable=false)
+     */
+    private $orden;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_collection", type="boolean", nullable=false)
+     */
+    private $isCollection = false;
+
+    /**
+     * @var \FrmFormulario
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormulario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_formulario", referencedColumnName="id")
+     * })
+     */
+    private $idFormulario;
+
+    /**
+     * @var \FrmFormularioSeccionPool
+     *
+     * @ORM\ManyToOne(targetEntity="FrmFormularioSeccionPool")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_padre", referencedColumnName="id")
+     * })
+     */
+    private $idPadre;
+
+    /**
+     * @var \FrmSeccionPool
+     *
+     * @ORM\ManyToOne(targetEntity="FrmSeccionPool")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_seccion_pool", referencedColumnName="id")
+     * })
+     */
+    private $idSeccionPool;
+
+
+}

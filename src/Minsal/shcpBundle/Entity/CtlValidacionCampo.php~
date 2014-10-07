@@ -1,0 +1,68 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlValidacionCampo
+ *
+ * @ORM\Table(name="ctl_validacion_campo")
+ * @ORM\Entity
+ */
+class CtlValidacionCampo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_validacion_campo_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=30, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo_validacion", type="text", nullable=true)
+     */
+    private $codigoValidacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aplica_para", type="integer", nullable=false)
+     */
+    private $aplicaPara;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="requiere_comparacion", type="boolean", nullable=false)
+     */
+    private $requiereComparacion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valor_numerico", type="boolean", nullable=true)
+     */
+    private $valorNumerico = false;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="aplica_item_pool", type="boolean", nullable=false)
+     */
+    private $aplicaItemPool;
+
+
+}

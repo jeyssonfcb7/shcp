@@ -1,0 +1,85 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParPresent
+ *
+ * @ORM\Table(name="shcp_par_present", indexes={@ORM\Index(name="IDX_6181903CD766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParPresent
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_present_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pres_edad_gesta_sem", type="integer", nullable=true)
+     */
+    private $presEdadGestaSem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pres_edad_gesta_dias", type="integer", nullable=true)
+     */
+    private $presEdadGestaDias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pres_basado_en", type="string", nullable=true)
+     */
+    private $presBasadoEn;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pres_present_situacion", type="string", nullable=true)
+     */
+    private $presPresentSituacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pres_tam_fetal_acorde", type="string", nullable=true)
+     */
+    private $presTamFetalAcorde;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pres_acomp_trabajo_parto", type="string", nullable=true)
+     */
+    private $presAcompTrabajoParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pres_acomp_parto", type="string", nullable=true)
+     */
+    private $presAcompParto;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

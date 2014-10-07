@@ -1,0 +1,50 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FrmInsercionParametro
+ *
+ * @ORM\Table(name="frm_insercion_parametro", indexes={@ORM\Index(name="IDX_6D151B6FF1E1FDD5", columns={"id_grupo_insercion"})})
+ * @ORM\Entity
+ */
+class FrmInsercionParametro
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="frm_insercion_parametro_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="text", nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="campo_destino", type="text", nullable=false)
+     */
+    private $campoDestino;
+
+    /**
+     * @var \FrmGrupoInsercion
+     *
+     * @ORM\ManyToOne(targetEntity="FrmGrupoInsercion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_grupo_insercion", referencedColumnName="id")
+     * })
+     */
+    private $idGrupoInsercion;
+
+
+}

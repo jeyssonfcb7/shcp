@@ -1,0 +1,67 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlCampo
+ *
+ * @ORM\Table(name="ctl_campo", indexes={@ORM\Index(name="IDX_F5066AA11FC10A6F", columns={"id_tabla"}), @ORM\Index(name="IDX_F5066AA18A212DB5", columns={"id_tipo_campo"})})
+ * @ORM\Entity
+ */
+class CtlCampo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_campo_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=30, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tamano", type="integer", nullable=true)
+     */
+    private $tamano;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="es_nulo", type="boolean", nullable=false)
+     */
+    private $esNulo;
+
+    /**
+     * @var \CtlTabla
+     *
+     * @ORM\ManyToOne(targetEntity="CtlTabla")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tabla", referencedColumnName="id")
+     * })
+     */
+    private $idTabla;
+
+    /**
+     * @var \CtlTipoCampo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlTipoCampo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tipo_campo", referencedColumnName="id")
+     * })
+     */
+    private $idTipoCampo;
+
+
+}

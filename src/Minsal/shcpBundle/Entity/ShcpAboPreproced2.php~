@@ -1,0 +1,155 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboPreproced2
+ *
+ * @ORM\Table(name="shcp_abo_preproced2", indexes={@ORM\Index(name="IDX_B5C1392D70374B77", columns={"id_preproced1"})})
+ * @ORM\Entity
+ */
+class ShcpAboPreproced2
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_preproced2_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_sintomat_dias", type="string", nullable=true)
+     */
+    private $prep2SintomatDias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_sintomat_hrs", type="string", nullable=true)
+     */
+    private $prep2SintomatHrs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_sangrado", type="string", nullable=true)
+     */
+    private $prep2Sangrado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_dolor", type="string", nullable=true)
+     */
+    private $prep2Dolor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_dolor_escala", type="string", nullable=true)
+     */
+    private $prep2DolorEscala;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_conciencia", type="string", nullable=true)
+     */
+    private $prep2Conciencia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_piel_mucosa", type="string", nullable=true)
+     */
+    private $prep2PielMucosa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_abdomen", type="string", nullable=true)
+     */
+    private $prep2Abdomen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_tam_uterino", type="string", nullable=true)
+     */
+    private $prep2TamUterino;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_posicion", type="string", nullable=true)
+     */
+    private $prep2Posicion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_cuello_cerrado", type="string", nullable=true)
+     */
+    private $prep2CuelloCerrado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_restos", type="string", nullable=true)
+     */
+    private $prep2Restos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_vagina_normal", type="string", nullable=true)
+     */
+    private $prep2VaginaNormal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_diametro_eco", type="string", nullable=true)
+     */
+    private $prep2DiametroEco;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_tamanio", type="string", nullable=true)
+     */
+    private $prep2Tamanio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_analge_solicitada", type="string", nullable=true)
+     */
+    private $prep2AnalgeSolicitada;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep2_analge_realizada", type="string", nullable=true)
+     */
+    private $prep2AnalgeRealizada;
+
+    /**
+     * @var \ShcpAboPreproced1
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboPreproced1")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_preproced1", referencedColumnName="id")
+     * })
+     */
+    private $idPreproced1;
+
+
+}

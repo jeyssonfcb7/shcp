@@ -1,0 +1,102 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpDocHojaPostparto
+ *
+ * @ORM\Table(name="shcp_doc_hoja_postparto", indexes={@ORM\Index(name="IDX_2229FAFF93489788", columns={"id_exp_materno"}), @ORM\Index(name="IDX_2229FAFFF83B3AB5", columns={"id_hc"})})
+ * @ORM\Entity
+ */
+class ShcpDocHojaPostparto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_doc_hoja_postparto_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hpost_fecha", type="date", nullable=true)
+     */
+    private $hpostFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="hpost_hora", type="time", nullable=true)
+     */
+    private $hpostHora;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hpost_dias_post_parto", type="integer", nullable=true)
+     */
+    private $hpostDiasPostParto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hpost_complic", type="string", length=150, nullable=true)
+     */
+    private $hpostComplic;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hpost_ctrl_pre", type="string", nullable=true)
+     */
+    private $hpostCtrlPre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hpost_apego_precoz", type="string", nullable=true)
+     */
+    private $hpostApegoPrecoz;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hpost_toxoide_res", type="string", nullable=true)
+     */
+    private $hpostToxoideRes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hpost_numero_dosis", type="integer", nullable=true)
+     */
+    private $hpostNumeroDosis;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_hc", referencedColumnName="id")
+     * })
+     */
+    private $idHc;
+
+
+}

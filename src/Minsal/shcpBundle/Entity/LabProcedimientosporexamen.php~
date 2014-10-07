@@ -1,0 +1,159 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabProcedimientosporexamen
+ *
+ * @ORM\Table(name="lab_procedimientosporexamen", indexes={@ORM\Index(name="IDX_8E89EC9445BCCC8", columns={"idarea"}), @ORM\Index(name="IDX_8E89EC9475BB31F7", columns={"idestablecimiento"}), @ORM\Index(name="IDX_8E89EC9435F12240", columns={"idexamen"}), @ORM\Index(name="IDX_8E89EC946724C8DC", columns={"idusuariomod"}), @ORM\Index(name="IDX_8E89EC9413B895A1", columns={"idusuarioreg"}), @ORM\Index(name="IDX_8E89EC94FA038581", columns={"idrangoedad"}), @ORM\Index(name="IDX_8E89EC94FFF6A732", columns={"idsexo"})})
+ * @ORM\Entity
+ */
+class LabProcedimientosporexamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_procedimientosporexamen_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreprocedimiento", type="string", length=150, nullable=true)
+     */
+    private $nombreprocedimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unidades", type="string", length=60, nullable=true)
+     */
+    private $unidades;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rangoinicio", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $rangoinicio;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rangofin", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $rangofin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="controldiario", type="string", length=150, nullable=true)
+     */
+    private $controldiario;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaini", type="date", nullable=true)
+     */
+    private $fechaini;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechafin", type="date", nullable=true)
+     */
+    private $fechafin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \CtlAreaServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlAreaServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idarea", referencedColumnName="id")
+     * })
+     */
+    private $idarea;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var \CtlExamenServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlExamenServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idexamen", referencedColumnName="id")
+     * })
+     */
+    private $idexamen;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuariomod", referencedColumnName="id")
+     * })
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \CtlRangoEdad
+     *
+     * @ORM\ManyToOne(targetEntity="CtlRangoEdad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idrangoedad", referencedColumnName="id")
+     * })
+     */
+    private $idrangoedad;
+
+    /**
+     * @var \CtlSexo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlSexo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsexo", referencedColumnName="id")
+     * })
+     */
+    private $idsexo;
+
+
+}

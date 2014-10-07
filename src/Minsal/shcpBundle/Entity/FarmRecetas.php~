@@ -1,0 +1,130 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FarmRecetas
+ *
+ * @ORM\Table(name="farm_recetas", indexes={@ORM\Index(name="IDX_E9C07BE845BCCC8", columns={"idarea"}), @ORM\Index(name="IDX_E9C07BE8947B0200", columns={"idfarmacia"})})
+ * @ORM\Entity
+ */
+class FarmRecetas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="farm_recetas_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idhistorialclinico", type="integer", nullable=false)
+     */
+    private $idhistorialclinico;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=false)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idestado", type="string", nullable=false)
+     */
+    private $idestado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idpersonal", type="integer", nullable=true)
+     */
+    private $idpersonal;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numeroreceta", type="integer", nullable=true)
+     */
+    private $numeroreceta;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idpersonalintro", type="integer", nullable=true)
+     */
+    private $idpersonalintro;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idareaorigen", type="integer", nullable=true)
+     */
+    private $idareaorigen;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="correlativo", type="integer", nullable=true)
+     */
+    private $correlativo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correlativoanual", type="string", length=100, nullable=true)
+     */
+    private $correlativoanual;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idpersonaldespacho", type="integer", nullable=true)
+     */
+    private $idpersonaldespacho;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idestablecimiento", type="integer", nullable=true)
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmodalidad", type="integer", nullable=true)
+     */
+    private $idmodalidad;
+
+    /**
+     * @var \MntAreafarmacia
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreafarmacia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idarea", referencedColumnName="id")
+     * })
+     */
+    private $idarea;
+
+    /**
+     * @var \MntFarmacia
+     *
+     * @ORM\ManyToOne(targetEntity="MntFarmacia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idfarmacia", referencedColumnName="id")
+     * })
+     */
+    private $idfarmacia;
+
+
+}

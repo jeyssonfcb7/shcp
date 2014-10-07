@@ -1,0 +1,127 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboProced1
+ *
+ * @ORM\Table(name="shcp_abo_proced1", indexes={@ORM\Index(name="IDX_5EB187B9CDD53299", columns={"id_admin_proceden"})})
+ * @ORM\Entity
+ */
+class ShcpAboProced1
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_proced1_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="proc1_fecha", type="date", nullable=true)
+     */
+    private $proc1Fecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="proc1_hora_min", type="time", nullable=true)
+     */
+    private $proc1HoraMin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_postagland", type="string", nullable=true)
+     */
+    private $proc1Postagland;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_dilatador", type="string", nullable=true)
+     */
+    private $proc1Dilatador;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="proc1_hrs_dilatacion", type="time", nullable=true)
+     */
+    private $proc1HrsDilatacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_evac_uterina", type="string", nullable=true)
+     */
+    private $proc1EvacUterina;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_ambiente", type="string", nullable=true)
+     */
+    private $proc1Ambiente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_medicina_reci", type="string", nullable=true)
+     */
+    private $proc1MedicinaReci;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_otra_med1", type="string", nullable=true)
+     */
+    private $proc1OtraMed1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_otra_med2", type="string", nullable=true)
+     */
+    private $proc1OtraMed2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_otra_med3", type="string", nullable=true)
+     */
+    private $proc1OtraMed3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_otra_med4", type="string", nullable=true)
+     */
+    private $proc1OtraMed4;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="proc1_score_dolor", type="string", nullable=true)
+     */
+    private $proc1ScoreDolor;
+
+    /**
+     * @var \ShcpAboAdmisionProceden
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboAdmisionProceden")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admin_proceden", referencedColumnName="id")
+     * })
+     */
+    private $idAdminProceden;
+
+
+}

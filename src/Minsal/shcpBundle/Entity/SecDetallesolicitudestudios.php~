@@ -1,0 +1,137 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SecDetallesolicitudestudios
+ *
+ * @ORM\Table(name="sec_detallesolicitudestudios", indexes={@ORM\Index(name="IDX_B983B70C730CF75F", columns={"idempleado"}), @ORM\Index(name="IDX_B983B70C75BB31F7", columns={"idestablecimiento"}), @ORM\Index(name="IDX_B983B70C87364D84", columns={"idestablecimientoexterno"}), @ORM\Index(name="IDX_B983B70C2AB3F305", columns={"estadodetalle"}), @ORM\Index(name="IDX_B983B70C35F12240", columns={"idexamen"}), @ORM\Index(name="IDX_B983B70C13B895A1", columns={"idusuarioreg"}), @ORM\Index(name="IDX_B983B70CB1B94CA1", columns={"idorigenmuestra"}), @ORM\Index(name="IDX_B983B70CF06DFE3D", columns={"idsolicitudestudio"}), @ORM\Index(name="IDX_B983B70CDAB57264", columns={"idtipomuestra"})})
+ * @ORM\Entity
+ */
+class SecDetallesolicitudestudios
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="sec_detallesolicitudestudios_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="indicacion", type="string", length=250, nullable=true)
+     */
+    private $indicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=250, nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="date", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var \MntEmpleado
+     *
+     * @ORM\ManyToOne(targetEntity="MntEmpleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idempleado", referencedColumnName="id")
+     * })
+     */
+    private $idempleado;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimientoexterno", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimientoexterno;
+
+    /**
+     * @var \CtlEstadoServicioApoyo
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstadoServicioApoyo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="estadodetalle", referencedColumnName="id")
+     * })
+     */
+    private $estadodetalle;
+
+    /**
+     * @var \MntAreaExamenEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreaExamenEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idexamen", referencedColumnName="id")
+     * })
+     */
+    private $idexamen;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idusuarioreg", referencedColumnName="id")
+     * })
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \MntOrigenmuestra
+     *
+     * @ORM\ManyToOne(targetEntity="MntOrigenmuestra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idorigenmuestra", referencedColumnName="id")
+     * })
+     */
+    private $idorigenmuestra;
+
+    /**
+     * @var \SecSolicitudestudios
+     *
+     * @ORM\ManyToOne(targetEntity="SecSolicitudestudios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsolicitudestudio", referencedColumnName="id")
+     * })
+     */
+    private $idsolicitudestudio;
+
+    /**
+     * @var \LabTipomuestra
+     *
+     * @ORM\ManyToOne(targetEntity="LabTipomuestra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idtipomuestra", referencedColumnName="id")
+     * })
+     */
+    private $idtipomuestra;
+
+
+}

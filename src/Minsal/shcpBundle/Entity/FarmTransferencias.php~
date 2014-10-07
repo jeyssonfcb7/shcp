@@ -1,0 +1,127 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FarmTransferencias
+ *
+ * @ORM\Table(name="farm_transferencias", indexes={@ORM\Index(name="IDX_92D2D473F58EA699", columns={"idmedicina"})})
+ * @ORM\Entity
+ */
+class FarmTransferencias
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="farm_transferencias_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cantidad", type="decimal", precision=11, scale=3, nullable=false)
+     */
+    private $cantidad;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idareaorigen", type="integer", nullable=false)
+     */
+    private $idareaorigen;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idareadestino", type="integer", nullable=true)
+     */
+    private $idareadestino;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="justificacion", type="text", nullable=false)
+     */
+    private $justificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechatransferencia", type="date", nullable=false)
+     */
+    private $fechatransferencia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idpersonal", type="integer", nullable=false)
+     */
+    private $idpersonal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idestado", type="string", nullable=false)
+     */
+    private $idestado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cantidad1", type="decimal", precision=11, scale=3, nullable=true)
+     */
+    private $cantidad1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idlote", type="integer", nullable=false)
+     */
+    private $idlote;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cantidad2", type="decimal", precision=11, scale=3, nullable=true)
+     */
+    private $cantidad2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idlote2", type="integer", nullable=true)
+     */
+    private $idlote2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idestablecimiento", type="integer", nullable=false)
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmodalidad", type="integer", nullable=false)
+     */
+    private $idmodalidad;
+
+    /**
+     * @var \FarmCatalogoproductos
+     *
+     * @ORM\ManyToOne(targetEntity="FarmCatalogoproductos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idmedicina", referencedColumnName="id")
+     * })
+     */
+    private $idmedicina;
+
+
+}

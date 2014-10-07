@@ -1,0 +1,120 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParTrabajoParto
+ *
+ * @ORM\Table(name="shcp_par_trabajo_parto", indexes={@ORM\Index(name="IDX_4D44E3A2D766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParTrabajoParto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_trabajo_parto_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_partograma", type="string", nullable=true)
+     */
+    private $trabPartograma;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="trab_hora", type="time", nullable=true)
+     */
+    private $trabHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_posicion", type="string", nullable=true)
+     */
+    private $trabPosicion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_pa_sistole", type="string", nullable=true)
+     */
+    private $trabPaSistole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_pa_diastole", type="string", nullable=true)
+     */
+    private $trabPaDiastole;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="trab_pulso", type="integer", nullable=true)
+     */
+    private $trabPulso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="trab_contrac", type="integer", nullable=true)
+     */
+    private $trabContrac;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="trab_dilatacion", type="integer", nullable=true)
+     */
+    private $trabDilatacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_altura_present", type="string", nullable=true)
+     */
+    private $trabAlturaPresent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_variedad_posic", type="string", nullable=true)
+     */
+    private $trabVariedadPosic;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trab_meconio", type="string", nullable=true)
+     */
+    private $trabMeconio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="trab_fcf_dips", type="integer", nullable=true)
+     */
+    private $trabFcfDips;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

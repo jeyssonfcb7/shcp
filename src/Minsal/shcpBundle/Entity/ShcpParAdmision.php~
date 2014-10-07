@@ -1,0 +1,109 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParAdmision
+ *
+ * @ORM\Table(name="shcp_par_admision", indexes={@ORM\Index(name="IDX_FC111E9693489788", columns={"id_exp_materno"}), @ORM\Index(name="IDX_FC111E96F83B3AB5", columns={"id_hc"})})
+ * @ORM\Entity
+ */
+class ShcpParAdmision
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_admision_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="adm_fecha_ingreso", type="date", nullable=true)
+     */
+    private $admFechaIngreso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adm_carnet", type="string", nullable=true)
+     */
+    private $admCarnet;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adm_consulta_prenatal", type="integer", nullable=true)
+     */
+    private $admConsultaPrenatal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adm_hosp_embarazo", type="string", nullable=true)
+     */
+    private $admHospEmbarazo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adm_dias_hosp", type="integer", nullable=true)
+     */
+    private $admDiasHosp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adm_corticoide_ante", type="string", nullable=true)
+     */
+    private $admCorticoideAnte;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adm_semana_inicio", type="integer", nullable=true)
+     */
+    private $admSemanaInicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adm_inicio", type="string", nullable=true)
+     */
+    private $admInicio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adm_digitador_resp", type="bigint", nullable=true)
+     */
+    private $admDigitadorResp;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_hc", referencedColumnName="id")
+     * })
+     */
+    private $idHc;
+
+
+}

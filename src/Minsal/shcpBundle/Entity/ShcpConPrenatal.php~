@@ -1,0 +1,181 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpConPrenatal
+ *
+ * @ORM\Table(name="shcp_con_prenatal", indexes={@ORM\Index(name="IDX_9C7C4E53FAF6081D", columns={"id_signo_alarma"}), @ORM\Index(name="IDX_9C7C4E5393489788", columns={"id_exp_materno"}), @ORM\Index(name="IDX_9C7C4E53FBB1E188", columns={"id_citas_dia"}), @ORM\Index(name="IDX_9C7C4E536B3CA4B", columns={"id_user"}), @ORM\Index(name="IDX_9C7C4E53F83B3AB5", columns={"id_hc"})})
+ * @ORM\Entity
+ */
+class ShcpConPrenatal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_con_prenatal_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="prena_fecha", type="date", nullable=true)
+     */
+    private $prenaFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="prena_hora", type="time", nullable=true)
+     */
+    private $prenaHora;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prena_edad_gest", type="integer", nullable=true)
+     */
+    private $prenaEdadGest;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_peso", type="decimal", precision=3, scale=1, nullable=true)
+     */
+    private $prenaPeso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_presion_sist", type="string", nullable=true)
+     */
+    private $prenaPresionSist;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_presion_diast", type="string", nullable=true)
+     */
+    private $prenaPresionDiast;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_tempe", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $prenaTempe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prena_alt_uterina", type="integer", nullable=true)
+     */
+    private $prenaAltUterina;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_present", type="string", nullable=true)
+     */
+    private $prenaPresent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prena_frec_fetal", type="integer", nullable=true)
+     */
+    private $prenaFrecFetal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_mov_fetal", type="string", nullable=true)
+     */
+    private $prenaMovFetal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_prote", type="string", nullable=true)
+     */
+    private $prenaProte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_consulta_por", type="string", length=100, nullable=true)
+     */
+    private $prenaConsultaPor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_observ", type="string", length=500, nullable=true)
+     */
+    private $prenaObserv;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prena_presente_enfer", type="string", length=100, nullable=true)
+     */
+    private $prenaPresenteEnfer;
+
+    /**
+     * @var \ShcpConCtlSignoAlarma
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpConCtlSignoAlarma")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_signo_alarma", referencedColumnName="id")
+     * })
+     */
+    private $idSignoAlarma;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+    /**
+     * @var \CitCitasDia
+     *
+     * @ORM\ManyToOne(targetEntity="CitCitasDia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_citas_dia", referencedColumnName="id")
+     * })
+     */
+    private $idCitasDia;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+    /**
+     * @var \SecHistorialClinico
+     *
+     * @ORM\ManyToOne(targetEntity="SecHistorialClinico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_hc", referencedColumnName="id")
+     * })
+     */
+    private $idHc;
+
+
+}

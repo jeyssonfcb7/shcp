@@ -1,0 +1,162 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsAntecedentObste
+ *
+ * @ORM\Table(name="shcp_ins_antecedent_obste", indexes={@ORM\Index(name="IDX_89DC4E6B93489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpInsAntecedentObste
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_antecedent_obste_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_gestas_previas", type="integer", nullable=true)
+     */
+    private $antGestasPrevias;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_emb_ectopico", type="integer", nullable=true)
+     */
+    private $antEmbEctopico;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_abortos", type="integer", nullable=true)
+     */
+    private $antAbortos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_3esp_abortos", type="string", nullable=true)
+     */
+    private $ant3espAbortos;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_partos", type="integer", nullable=true)
+     */
+    private $antPartos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_peso_ult_emb", type="string", nullable=true)
+     */
+    private $antPesoUltEmb;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_gemelares", type="string", nullable=true)
+     */
+    private $antGemelares;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_vaginales", type="integer", nullable=true)
+     */
+    private $antVaginales;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_cesareas", type="integer", nullable=true)
+     */
+    private $antCesareas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_nac_vivos", type="integer", nullable=true)
+     */
+    private $antNacVivos;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_viven", type="integer", nullable=true)
+     */
+    private $antViven;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_muert_1sem", type="integer", nullable=true)
+     */
+    private $antMuert1sem;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_muert_1sem_dsp", type="integer", nullable=true)
+     */
+    private $antMuert1semDsp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ant_nac_muertos", type="integer", nullable=true)
+     */
+    private $antNacMuertos;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ant_fe_fin_emb_ant", type="date", nullable=true)
+     */
+    private $antFeFinEmbAnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_fe_emb_mnos1", type="string", nullable=true)
+     */
+    private $antFeEmbMnos1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_emb_planeado", type="string", nullable=true)
+     */
+    private $antEmbPlaneado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ant_fra_met_anti", type="string", nullable=true)
+     */
+    private $antFraMetAnti;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

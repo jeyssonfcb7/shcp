@@ -1,0 +1,139 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MntProcedimientoEstablecimiento
+ *
+ * @ORM\Table(name="mnt_procedimiento_establecimiento", indexes={@ORM\Index(name="fki_mnt_ciq_mnt_procedimiento_establecimiento", columns={"id_ciq"}), @ORM\Index(name="fki_mnt_rango_hora_mnt_procedimiento_establecimiento", columns={"id_rangohora"}), @ORM\Index(name="fki_mnt_empleado_mnt_procedimiento_establecimiento", columns={"id_empleado"}), @ORM\Index(name="fki_ctl_establecimiento_mnt_procedimiento_establecimiento", columns={"id_establecimiento"}), @ORM\Index(name="fki_mnt_area_mod_estab_mnt_procedimiento_establecimiento", columns={"id_area_mod_estab"})})
+ * @ORM\Entity
+ */
+class MntProcedimientoEstablecimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="mnt_procedimiento_establecimiento_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="techomaximo", type="integer", nullable=true)
+     */
+    private $techomaximo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cantidadacupo", type="integer", nullable=true)
+     */
+    private $cantidadacupo = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tiempoprevio", type="integer", nullable=true)
+     */
+    private $tiempoprevio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dia", type="integer", nullable=true)
+     */
+    private $dia;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="yrs", type="integer", nullable=true)
+     */
+    private $yrs;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuarioreg", type="smallint", nullable=true)
+     */
+    private $idusuarioreg;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahorareg", type="datetime", nullable=true)
+     */
+    private $fechahorareg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idusuariomod", type="smallint", nullable=true)
+     */
+    private $idusuariomod;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechahoramod", type="datetime", nullable=true)
+     */
+    private $fechahoramod;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_establecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idEstablecimiento;
+
+    /**
+     * @var \MntAreaModEstab
+     *
+     * @ORM\ManyToOne(targetEntity="MntAreaModEstab")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_area_mod_estab", referencedColumnName="id")
+     * })
+     */
+    private $idAreaModEstab;
+
+    /**
+     * @var \MntCiq
+     *
+     * @ORM\ManyToOne(targetEntity="MntCiq")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ciq", referencedColumnName="id")
+     * })
+     */
+    private $idCiq;
+
+    /**
+     * @var \MntEmpleado
+     *
+     * @ORM\ManyToOne(targetEntity="MntEmpleado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_empleado", referencedColumnName="id")
+     * })
+     */
+    private $idEmpleado;
+
+    /**
+     * @var \MntRangohora
+     *
+     * @ORM\ManyToOne(targetEntity="MntRangohora")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_rangohora", referencedColumnName="id")
+     * })
+     */
+    private $idRangohora;
+
+
+}

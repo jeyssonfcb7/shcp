@@ -1,0 +1,47 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsCtlEnfermedad
+ *
+ * @ORM\Table(name="shcp_ins_ctl_enfermedad")
+ * @ORM\Entity
+ */
+class ShcpInsCtlEnfermedad
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_ctl_enfermedad_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enf_nombre", type="string", length=60, nullable=true)
+     */
+    private $enfNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enf_tipo", type="string", nullable=true)
+     */
+    private $enfTipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enf_estado", type="string", nullable=true)
+     */
+    private $enfEstado;
+
+
+}

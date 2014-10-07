@@ -1,0 +1,127 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RxRechazada
+ *
+ * @ORM\Table(name="rx_rechazada", indexes={@ORM\Index(name="IDX_751C69CB6682EAB5", columns={"id_tamanio_pelicula"})})
+ * @ORM\Entity
+ */
+class RxRechazada
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rx_rechazada_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_detalle_solicitud", type="integer", nullable=true)
+     */
+    private $idDetalleSolicitud;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="buenas", type="integer", nullable=true)
+     */
+    private $buenas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="muy_penetrada", type="integer", nullable=true)
+     */
+    private $muyPenetrada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="poco_penetrada", type="integer", nullable=true)
+     */
+    private $pocoPenetrada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mal_centrada", type="integer", nullable=true)
+     */
+    private $malCentrada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="movida", type="integer", nullable=true)
+     */
+    private $movida;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="falla_equipo", type="integer", nullable=true)
+     */
+    private $fallaEquipo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="falla_revelado", type="integer", nullable=true)
+     */
+    private $fallaRevelado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="velada", type="integer", nullable=true)
+     */
+    private $velada;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="con_artefacto", type="integer", nullable=true)
+     */
+    private $conArtefacto;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="no_expuesta", type="integer", nullable=true)
+     */
+    private $noExpuesta;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mal_preparado", type="integer", nullable=true)
+     */
+    private $malPreparado;
+
+    /**
+     * @var \RxTamanioPelicula
+     *
+     * @ORM\ManyToOne(targetEntity="RxTamanioPelicula")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tamanio_pelicula", referencedColumnName="id")
+     * })
+     */
+    private $idTamanioPelicula;
+
+
+}

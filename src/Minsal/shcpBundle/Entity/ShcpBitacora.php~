@@ -1,0 +1,57 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpBitacora
+ *
+ * @ORM\Table(name="shcp_bitacora", indexes={@ORM\Index(name="IDX_412596A86B3CA4B", columns={"id_user"})})
+ * @ORM\Entity
+ */
+class ShcpBitacora
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_bitacora_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bit_operacion", type="string", nullable=true)
+     */
+    private $bitOperacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="bit_fecha_hora", type="date", nullable=true)
+     */
+    private $bitFechaHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bit_tabla_afectada", type="string", length=50, nullable=true)
+     */
+    private $bitTablaAfectada;
+
+    /**
+     * @var \FosUserUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUserUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
+
+
+}

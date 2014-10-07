@@ -1,0 +1,127 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LabDetalleresultado
+ *
+ * @ORM\Table(name="lab_detalleresultado", indexes={@ORM\Index(name="fki_tarjeta_detalleresultado", columns={"idtarjeta"}), @ORM\Index(name="fki_cantidad_detalleresultado", columns={"idcantidad"}), @ORM\Index(name="fki_subelemento_detalleresultado", columns={"idsubelemento"}), @ORM\Index(name="fki_resultados_detalleresultado", columns={"idresultado"}), @ORM\Index(name="fki_procedimientos", columns={"idprocedimiento"}), @ORM\Index(name="fki_establecimiento", columns={"idestablecimiento"}), @ORM\Index(name="fki_elementos_detalleresultado", columns={"idelemento"}), @ORM\Index(name="fki_baterias_detalleresultado", columns={"idbacteria"})})
+ * @ORM\Entity
+ */
+class LabDetalleresultado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="lab_detalleresultado_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resultado", type="string", length=200, nullable=true)
+     */
+    private $resultado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=250, nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cantidad", type="text", nullable=true)
+     */
+    private $cantidad;
+
+    /**
+     * @var \LabBacterias
+     *
+     * @ORM\ManyToOne(targetEntity="LabBacterias")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idbacteria", referencedColumnName="id")
+     * })
+     */
+    private $idbacteria;
+
+    /**
+     * @var \LabCantidadestincion
+     *
+     * @ORM\ManyToOne(targetEntity="LabCantidadestincion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idcantidad", referencedColumnName="id")
+     * })
+     */
+    private $idcantidad;
+
+    /**
+     * @var \LabElementos
+     *
+     * @ORM\ManyToOne(targetEntity="LabElementos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idelemento", referencedColumnName="id")
+     * })
+     */
+    private $idelemento;
+
+    /**
+     * @var \CtlEstablecimiento
+     *
+     * @ORM\ManyToOne(targetEntity="CtlEstablecimiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idestablecimiento", referencedColumnName="id")
+     * })
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var \LabProcedimientosporexamen
+     *
+     * @ORM\ManyToOne(targetEntity="LabProcedimientosporexamen")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idprocedimiento", referencedColumnName="id")
+     * })
+     */
+    private $idprocedimiento;
+
+    /**
+     * @var \LabResultados
+     *
+     * @ORM\ManyToOne(targetEntity="LabResultados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idresultado", referencedColumnName="id")
+     * })
+     */
+    private $idresultado;
+
+    /**
+     * @var \LabSubelementos
+     *
+     * @ORM\ManyToOne(targetEntity="LabSubelementos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsubelemento", referencedColumnName="id")
+     * })
+     */
+    private $idsubelemento;
+
+    /**
+     * @var \LabTarjetasvitek
+     *
+     * @ORM\ManyToOne(targetEntity="LabTarjetasvitek")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idtarjeta", referencedColumnName="id")
+     * })
+     */
+    private $idtarjeta;
+
+
+}

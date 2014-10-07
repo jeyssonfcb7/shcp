@@ -1,0 +1,78 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParTamizajeNeonatal
+ *
+ * @ORM\Table(name="shcp_par_tamizaje_neonatal", indexes={@ORM\Index(name="IDX_82E2CDEF1D6C3F70", columns={"id_recien_nacido"})})
+ * @ORM\Entity
+ */
+class ShcpParTamizajeNeonatal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_tamizaje_neonatal_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_vdrl", type="string", nullable=true)
+     */
+    private $tneoVdrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_vdrl_tratamient", type="string", nullable=true)
+     */
+    private $tneoVdrlTratamient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_tsh", type="string", nullable=true)
+     */
+    private $tneoTsh;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_hbpatia", type="string", nullable=true)
+     */
+    private $tneoHbpatia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_bilirrub", type="string", nullable=true)
+     */
+    private $tneoBilirrub;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tneo_toxoigm", type="string", nullable=true)
+     */
+    private $tneoToxoigm;
+
+    /**
+     * @var \ShcpParRecienNacido
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParRecienNacido")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_recien_nacido", referencedColumnName="id")
+     * })
+     */
+    private $idRecienNacido;
+
+
+}

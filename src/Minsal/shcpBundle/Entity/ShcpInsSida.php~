@@ -1,0 +1,92 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpInsSida
+ *
+ * @ORM\Table(name="shcp_ins_sida", indexes={@ORM\Index(name="IDX_92F01CD593489788", columns={"id_exp_materno"})})
+ * @ORM\Entity
+ */
+class ShcpInsSida
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_ins_sida_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_sol_mnos20", type="string", nullable=true)
+     */
+    private $sidaSolMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_pru_mnos20", type="string", nullable=true)
+     */
+    private $sidaPruMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_mnos20_sd", type="string", nullable=true)
+     */
+    private $sidaMnos20Sd;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_tarv_mnos20", type="string", nullable=true)
+     */
+    private $sidaTarvMnos20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_sol_mas20", type="string", nullable=true)
+     */
+    private $sidaSolMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_pru_mas20", type="string", nullable=true)
+     */
+    private $sidaPruMas20;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_mas20_sd", type="string", nullable=true)
+     */
+    private $sidaMas20Sd;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sida_tarv_mas20", type="string", nullable=true)
+     */
+    private $sidaTarvMas20;
+
+    /**
+     * @var \ShcpExpMaterno
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpExpMaterno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_exp_materno", referencedColumnName="id")
+     * })
+     */
+    private $idExpMaterno;
+
+
+}

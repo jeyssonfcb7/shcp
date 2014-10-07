@@ -1,0 +1,54 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RxArea
+ *
+ * @ORM\Table(name="rx_area")
+ * @ORM\Entity
+ */
+class RxArea
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rx_area_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo_area", type="string", length=4, nullable=true)
+     */
+    private $codigoArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_area", type="string", length=150, nullable=true)
+     */
+    private $nombreArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="habilitado", type="string", length=1, nullable=true)
+     */
+    private $habilitado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="direccion", type="string", length=50, nullable=true)
+     */
+    private $direccion;
+
+
+}

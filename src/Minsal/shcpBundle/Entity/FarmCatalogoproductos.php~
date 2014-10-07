@@ -1,0 +1,246 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FarmCatalogoproductos
+ *
+ * @ORM\Table(name="farm_catalogoproductos", indexes={@ORM\Index(name="IDX_725517AAE12A4E52", columns={"idunidadmedida"})})
+ * @ORM\Entity
+ */
+class FarmCatalogoproductos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="farm_catalogoproductos_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=8, nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idtipoproducto", type="integer", nullable=true)
+     */
+    private $idtipoproducto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="text", nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="niveluso", type="integer", nullable=true)
+     */
+    private $niveluso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="concentracion", type="string", length=382, nullable=true)
+     */
+    private $concentracion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formafarmaceutica", type="string", length=91, nullable=true)
+     */
+    private $formafarmaceutica;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presentacion", type="string", nullable=true)
+     */
+    private $presentacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prioridad", type="integer", nullable=true)
+     */
+    private $prioridad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precioactual", type="decimal", precision=20, scale=3, nullable=true)
+     */
+    private $precioactual;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aplicalote", type="integer", nullable=true)
+     */
+    private $aplicalote = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="existenciaactual", type="decimal", precision=15, scale=3, nullable=true)
+     */
+    private $existenciaactual = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="especificacionestecnicas", type="text", nullable=true)
+     */
+    private $especificacionestecnicas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigonacionesunidas", type="string", length=20, nullable=true)
+     */
+    private $codigonacionesunidas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pertenecelistadooficial", type="integer", nullable=true)
+     */
+    private $pertenecelistadooficial;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estadoproducto", type="integer", nullable=true)
+     */
+    private $estadoproducto = '1';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="text", nullable=true)
+     */
+    private $observacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auusuariocreacion", type="string", nullable=true)
+     */
+    private $auusuariocreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="aufechacreacion", type="datetime", nullable=true)
+     */
+    private $aufechacreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auusuariomodificacion", type="string", length=15, nullable=true)
+     */
+    private $auusuariomodificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="aufechamodificacion", type="datetime", nullable=true)
+     */
+    private $aufechamodificacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estasincronizada", type="integer", nullable=true)
+     */
+    private $estasincronizada = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idestablecimiento", type="integer", nullable=true)
+     */
+    private $idestablecimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="clasificacion", type="string", nullable=true)
+     */
+    private $clasificacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="areatecnica", type="integer", nullable=true)
+     */
+    private $areatecnica;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipouaci", type="integer", nullable=true)
+     */
+    private $tipouaci;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idespecificogasto", type="integer", nullable=true)
+     */
+    private $idespecificogasto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ultimoprecio", type="decimal", precision=20, scale=3, nullable=true)
+     */
+    private $ultimoprecio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idterapeutico", type="integer", nullable=true)
+     */
+    private $idterapeutico = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idhospital", type="integer", nullable=true)
+     */
+    private $idhospital = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idestado", type="string", nullable=true)
+     */
+    private $idestado = 'H';
+
+    /**
+     * @var \FarmUnidadmedidas
+     *
+     * @ORM\ManyToOne(targetEntity="FarmUnidadmedidas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idunidadmedida", referencedColumnName="id")
+     * })
+     */
+    private $idunidadmedida;
+
+
+}

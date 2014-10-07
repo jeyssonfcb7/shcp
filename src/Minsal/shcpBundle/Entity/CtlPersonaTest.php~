@@ -1,0 +1,82 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlPersonaTest
+ *
+ * @ORM\Table(name="ctl_persona_test")
+ * @ORM\Entity
+ */
+class CtlPersonaTest
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_persona_test_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_persona", type="string", length=150, nullable=true)
+     */
+    private $nombrePersona;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_nacimiento", type="date", nullable=false)
+     */
+    private $fechaNacimiento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="edad", type="integer", nullable=true)
+     */
+    private $edad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="promedio_notas", type="decimal", precision=10, scale=0, nullable=false)
+     */
+    private $promedioNotas = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="acepta_condiciones", type="boolean", nullable=false)
+     */
+    private $aceptaCondiciones = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=50, nullable=true)
+     */
+    private $userName;
+
+
+}

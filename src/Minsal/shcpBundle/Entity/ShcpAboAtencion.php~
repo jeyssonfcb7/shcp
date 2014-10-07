@@ -1,0 +1,78 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboAtencion
+ *
+ * @ORM\Table(name="shcp_abo_atencion", indexes={@ORM\Index(name="IDX_49AA46706A439ED0", columns={"id_post_proced"})})
+ * @ORM\Entity
+ */
+class ShcpAboAtencion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_atencion_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aten_pa_sist", type="string", nullable=true)
+     */
+    private $atenPaSist;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aten_pa_diast", type="string", nullable=true)
+     */
+    private $atenPaDiast;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aten_pulso", type="integer", nullable=true)
+     */
+    private $atenPulso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aten_temp", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $atenTemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aten_sangrado", type="string", nullable=true)
+     */
+    private $atenSangrado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="aten_score", type="integer", nullable=true)
+     */
+    private $atenScore;
+
+    /**
+     * @var \ShcpAboPostProced
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboPostProced")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_post_proced", referencedColumnName="id")
+     * })
+     */
+    private $idPostProced;
+
+
+}

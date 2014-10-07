@@ -1,0 +1,57 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RxExamen
+ *
+ * @ORM\Table(name="rx_examen", indexes={@ORM\Index(name="IDX_72FAC2C95CB4216A", columns={"id_area"})})
+ * @ORM\Entity
+ */
+class RxExamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rx_examen_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo_examen", type="string", length=6, nullable=false)
+     */
+    private $codigoExamen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_examen", type="string", length=250, nullable=true)
+     */
+    private $nombreExamen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="habilitado", type="string", length=1, nullable=true)
+     */
+    private $habilitado;
+
+    /**
+     * @var \RxArea
+     *
+     * @ORM\ManyToOne(targetEntity="RxArea")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_area", referencedColumnName="id")
+     * })
+     */
+    private $idArea;
+
+
+}

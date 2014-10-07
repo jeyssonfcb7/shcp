@@ -1,0 +1,106 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpParPuerperio
+ *
+ * @ORM\Table(name="shcp_par_puerperio", indexes={@ORM\Index(name="IDX_11020C1FD766E548", columns={"id_admision_parto"})})
+ * @ORM\Entity
+ */
+class ShcpParPuerperio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_par_puerperio_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="puer_fecha", type="date", nullable=true)
+     */
+    private $puerFecha;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="puer_hora", type="time", nullable=true)
+     */
+    private $puerHora;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_temp", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $puerTemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_pa_sistole", type="string", nullable=true)
+     */
+    private $puerPaSistole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_pa_diastole", type="string", nullable=true)
+     */
+    private $puerPaDiastole;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="puer_pulso", type="integer", nullable=true)
+     */
+    private $puerPulso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_involucion", type="string", length=25, nullable=true)
+     */
+    private $puerInvolucion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_loquios", type="string", length=25, nullable=true)
+     */
+    private $puerLoquios;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_antirubeo", type="string", nullable=true)
+     */
+    private $puerAntirubeo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="puer_globulina_antid", type="string", nullable=true)
+     */
+    private $puerGlobulinaAntid;
+
+    /**
+     * @var \ShcpParAdmision
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpParAdmision")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admision_parto", referencedColumnName="id")
+     * })
+     */
+    private $idAdmisionParto;
+
+
+}

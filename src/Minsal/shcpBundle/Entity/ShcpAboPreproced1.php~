@@ -1,0 +1,190 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ShcpAboPreproced1
+ *
+ * @ORM\Table(name="shcp_abo_preproced1", indexes={@ORM\Index(name="IDX_2CC86897CDD53299", columns={"id_admin_proceden"})})
+ * @ORM\Entity
+ */
+class ShcpAboPreproced1
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="shcp_abo_preproced1_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prep1_pulso", type="integer", nullable=true)
+     */
+    private $prep1Pulso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_pulso_may100_men60", type="string", nullable=true)
+     */
+    private $prep1PulsoMay100Men60;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_pa_sistole", type="string", nullable=true)
+     */
+    private $prep1PaSistole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_pa_diastole", type="string", nullable=true)
+     */
+    private $prep1PaDiastole;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_pa_may140_90_men80_50", type="string", nullable=true)
+     */
+    private $prep1PaMay14090Men8050;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prep1_frec_respirat", type="integer", nullable=true)
+     */
+    private $prep1FrecRespirat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_frec_respirat_may16", type="string", nullable=true)
+     */
+    private $prep1FrecRespiratMay16;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_temp", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $prep1Temp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_temp_may38", type="string", nullable=true)
+     */
+    private $prep1TempMay38;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_hemoglob", type="decimal", precision=2, scale=1, nullable=true)
+     */
+    private $prep1Hemoglob;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_hemoglob_men10", type="string", nullable=true)
+     */
+    private $prep1HemoglobMen10;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_sif_diagno", type="string", nullable=true)
+     */
+    private $prep1SifDiagno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_sif_tratamient", type="string", nullable=true)
+     */
+    private $prep1SifTratamient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_sif_tratamient_pareja", type="string", nullable=true)
+     */
+    private $prep1SifTratamientPareja;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_leucocitos", type="string", nullable=true)
+     */
+    private $prep1Leucocitos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_plaquetas", type="string", nullable=true)
+     */
+    private $prep1Plaquetas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_plaq_men100ml", type="string", nullable=true)
+     */
+    private $prep1PlaqMen100ml;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_vih", type="string", nullable=true)
+     */
+    private $prep1Vih;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_grupo_sang", type="string", nullable=true)
+     */
+    private $prep1GrupoSang;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_rh", type="string", nullable=true)
+     */
+    private $prep1Rh;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_inmuniza", type="string", nullable=true)
+     */
+    private $prep1Inmuniza;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prep1_globuantid", type="string", nullable=true)
+     */
+    private $prep1Globuantid;
+
+    /**
+     * @var \ShcpAboAdmisionProceden
+     *
+     * @ORM\ManyToOne(targetEntity="ShcpAboAdmisionProceden")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_admin_proceden", referencedColumnName="id")
+     * })
+     */
+    private $idAdminProceden;
+
+
+}

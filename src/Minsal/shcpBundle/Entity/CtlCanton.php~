@@ -1,0 +1,50 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CtlCanton
+ *
+ * @ORM\Table(name="ctl_canton", indexes={@ORM\Index(name="IDX_CC9031F47EAD49C7", columns={"id_municipio"})})
+ * @ORM\Entity
+ */
+class CtlCanton
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="ctl_canton_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=150, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo_digestyc", type="string", length=5, nullable=true)
+     */
+    private $codigoDigestyc;
+
+    /**
+     * @var \CtlMunicipio
+     *
+     * @ORM\ManyToOne(targetEntity="CtlMunicipio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_municipio", referencedColumnName="id")
+     * })
+     */
+    private $idMunicipio;
+
+
+}

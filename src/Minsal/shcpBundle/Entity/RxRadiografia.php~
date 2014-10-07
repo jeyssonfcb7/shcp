@@ -1,0 +1,96 @@
+<?php
+
+namespace Minsal\shcpBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RxRadiografia
+ *
+ * @ORM\Table(name="rx_radiografia")
+ * @ORM\Entity
+ */
+class RxRadiografia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rx_radiografia_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tamanio", type="string", length=60, nullable=true)
+     */
+    private $tamanio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lectura_placa", type="text", nullable=true)
+     */
+    private $lecturaPlaca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=2, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_detalle_solicitud", type="integer", nullable=true)
+     */
+    private $idDetalleSolicitud;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_solicitud_estudio", type="integer", nullable=true)
+     */
+    private $idSolicitudEstudio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_empleado", type="string", length=50, nullable=true)
+     */
+    private $idEmpleado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="encargado_traslado", type="string", length=50, nullable=true)
+     */
+    private $encargadoTraslado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tecnico", type="string", length=50, nullable=true)
+     */
+    private $tecnico;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="habilitado", type="string", length=2, nullable=true)
+     */
+    private $habilitado;
+
+
+}
