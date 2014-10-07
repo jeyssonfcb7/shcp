@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ShcpDocCtlPregunta</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Pregdetalle</th>
+                <td>{{ entity.pregDetalle }}</td>
+            </tr>
+            <tr>
+                <th>Pregtipo</th>
+                <td>{{ entity.pregTipo }}</td>
+            </tr>
+            <tr>
+                <th>Pregestado</th>
+                <td>{{ entity.pregEstado }}</td>
+            </tr>
+            <tr>
+                <th>Pregseccion</th>
+                <td>{{ entity.pregSeccion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('shcpdocctlpregunta') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('shcpdocctlpregunta_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

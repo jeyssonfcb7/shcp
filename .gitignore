@@ -1,0 +1,84 @@
+<<<<<<< HEAD
+# Bootstrap
+app/bootstrap*
+
+# Composer phar
+composer.phar
+composer.lock
+ 
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+ 
+# Archivos de configuración
+app/config/parameters.ini
+app/config/parameters.yml
+ 
+#Carpeta nbproject de netbeans
+nbproject/
+
+#Archivos de respaldo
+*~
+
+#Archivos de solución de conflictos
+*.orig
+
+#Archivo de configuración del JasperServerReport
+src/Minsal/Util/JasperReport/_jasperserverreports.php
+
+#Directorio que utiliza el JasperServerReport para abrir las imagenes
+web/imagenes/*
+
+#upload files
+upload/*
+
+#Vendors compresos
+*.tar.gz
+=======
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+>>>>>>> b221809dafb1949646fbf4a7381de5c0713703d2

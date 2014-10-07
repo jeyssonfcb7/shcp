@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ShcpInsCtlEnfermedad</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Enfnombre</th>
+                <td>{{ entity.enfNombre }}</td>
+            </tr>
+            <tr>
+                <th>Enftipo</th>
+                <td>{{ entity.enfTipo }}</td>
+            </tr>
+            <tr>
+                <th>Enfestado</th>
+                <td>{{ entity.enfEstado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('shcpinsctlenfermedad') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('shcpinsctlenfermedad_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
